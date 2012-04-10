@@ -7,8 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<section id="container">
+  <header> header </header> <!-- header -->
+  
+  <nav> nav </nav> <!-- nav -->
 
-<%= yield %>
+  <section id="content"> 
+    <%= yield %> 
+  </section> <!-- #content -->
 
+  <footer> footer </footer> <!-- footer -->
+</section> <!-- #container -->
 </body>
 </html>
