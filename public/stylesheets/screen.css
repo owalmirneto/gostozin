@@ -1,0 +1,27 @@
+/* =============================================================================
+   APPLICATION
+   ========================================================================== */
+
+body {padding: 60px 0 40px 0}
+footer {text-align: center}
+.alert {margin-bottom: 0 !important}
+.centered {margin:0 auto; float: none;}
+
+/**
+ * Perfil
+ */
+.hero-unit { padding: 20px 30px}
+.hero-unit h1 {font-size:45px}
+
+
+/**
+ * Users password
+ */
+
+#usersPasswordModal {width: 300px; margin-left: -150px}
+
+/**
+ * Nav
+ */
+#nav-admin > a {color:#fff !important}
+.input-textarea {height: 300px}
