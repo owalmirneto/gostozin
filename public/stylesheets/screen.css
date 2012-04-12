@@ -25,3 +25,5 @@ footer {text-align: center}
  */
 #nav-admin > a {color:#fff !important}
 .input-textarea {height: 300px}
+
+li#avatar { padding-top:3px; }
