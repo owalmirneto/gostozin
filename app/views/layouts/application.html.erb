@@ -24,8 +24,8 @@
     
   <!-- Le javascript
   ================================================== -->
-  <!-- jquery -->
-  <%= javascript_include_tag "/scripts/jquery/jquery.min" %>
+  <!-- scripts default of rails -->
+  <%= javascript_include_tag "application" %>
   <!-- bootstrap -->
   <%= javascript_include_tag "/scripts/bootstrap/bootstrap.min" %>
   <%= javascript_include_tag "/scripts/bootstrap/prompt.modal" %>
@@ -70,9 +70,7 @@
 
   <div class="container" id="container">
     <div class="row">
-      <div class="span12">
-        <%= yield %> 
-      </div>  
+      <%= yield %> 
       <div class="clearfix"></div>
     </div><!--/row-->     
   </div> <!-- /container -->
