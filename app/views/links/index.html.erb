@@ -6,7 +6,7 @@
     <div class="link">
       <div class=""><%= link.updated_at.strftime "%d.%m.%Y" %></div>
       <h3 class=""><%= link.title %></h3>
-      <div class=""><%= link_to link.url, link.url %> <%= link_to "", link.url, :class => "icon-share" %></div>
+      <div class=""><%= link_to link.url, link.url %> <%= link_to "", link.url, :class => "icon-share", target: "_blank"  %></div>
       <div class=""><%= link.description %></div>
       <div class="">
         <% tags = link.tags.split "," %>
