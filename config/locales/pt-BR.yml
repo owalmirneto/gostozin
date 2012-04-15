@@ -209,6 +209,9 @@ pt-BR:
       link:
         one: Link
         other: Links
+      user:
+        one: Usuário
+        other: Usuários
 
     attributes:
       link:
@@ -216,3 +219,8 @@ pt-BR:
         url: "Link"
         description: "Descrição"
         Tags: "Tags"
+      user:
+        username: "Nome de usuário"
+        email: "E-mail"
+        password: "Senha"
+        password_confirmation: "Confirmação de senha"

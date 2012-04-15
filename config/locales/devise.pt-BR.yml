@@ -120,3 +120,6 @@ pt-BR:
       already_confirmed: "já foi confirmado"
       not_found: "não encontrado"
       not_locked: "não foi bloqueado"
+      not_saved:
+        one: "1 erro proibide este %{resource} de ser salvo:"
+        other: "%{count} erros proibidem este %{resource} de ser salvo"
