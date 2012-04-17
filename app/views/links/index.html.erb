@@ -8,17 +8,19 @@
       <h3 class="title"><%= link.title %></h3>
       <div class="url"><%= link_to link.url, link.url %> <%= link_to "", link.url, :class => "icon-share", target: "_blank"  %></div>
       <div class="descriptions"><%= link.description %></div>
-      <div class="actions">
+      <div class="tags">
         <% tags = link.tags.split "," %>
         <% tags.each do |tag| %>
           <span class="label label-info"><%= tag %></span>
         <% end %>
       </div>
-      <div class="">
-        <br />
-        <%= link_to "", edit_link_path(link), :class => "icon-pencil" %>
-        <%= link_to "", link, :class => "icon-remove", confirm: "Are you sure?", method: :delete %>
-      </div>
+      <% if user_signed_in? %>
+        <div class="actions">
+          <br />
+          <%= link_to "", edit_link_path(link), :class => "icon-pencil" %>
+          <%= link_to "", link, :class => "icon-remove", confirm: "Are you sure?", method: :delete %>
+        </div>
+      <% end %>
     </div>
     <hr />
   <% end %>

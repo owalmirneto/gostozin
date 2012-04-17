@@ -1,5 +1,6 @@
 class LinksController < ApplicationController
 
+  # before_filter :authenticate_user!, :except => :index
   before_filter :authenticate_user!
 
   # GET /links
@@ -47,7 +48,7 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.save
-        format.html { redirect_to @link, notice: 'Link was successfully created.' }
+        format.html { redirect_to @link, notice: 'Link foi adicionado com sucesso.' }
         format.json { render json: @link, status: :created, location: @link }
       else
         format.html { render action: "new" }
@@ -63,7 +64,7 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.update_attributes(params[:link])
-        format.html { redirect_to @link, notice: 'Link was successfully updated.' }
+        format.html { redirect_to @link, notice: 'Link foi alterado com sucesso.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
