@@ -1,1 +1,8 @@
-<h1>home page</h1>
+<div>
+  <h2>Gostosinho</h2>
+  <%= link_to "Últimos links", links_path, :class => "btn btn-info" %>
+  <% if !user_signed_in? %>
+    <%= link_to "Entrar", new_user_session_path, :class => "btn btn-info" %>
+    <%= link_to "Cadastre-se", new_user_registration_path, :class => "btn btn-info" %>
+  <% end %>
+</div>

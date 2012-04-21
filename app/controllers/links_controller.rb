@@ -6,7 +6,7 @@ class LinksController < ApplicationController
   # GET /links
   # GET /links.json
   def index
-    @links = Link.by_user current_user
+    @links = Link.all
 
     respond_to do |format|
       format.html # index.html.erb

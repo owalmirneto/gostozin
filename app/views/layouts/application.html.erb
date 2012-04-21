@@ -46,31 +46,34 @@
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container-fluid container">
-        <a class="brand" href="/">Gostoz.in</a>
         <div class="nav-collapse">
-          <ul class="nav pull-right">
-            <% if user_signed_in? %>
-              <li id="avatar"><%= image_tag "/images/avatar-32.png" %></li>
-              <li class="active dropdown" id="nav-profile">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#nav-profile">
-                  Perfil <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><%= link_to "Meus Links", links_path %></li>
-                  <li><a href="#" data-target="#usersPasswordModal" data-toggle="modal">Alterar senha</a></li>
-                  <li class="divider"></li>
-                  <li>
-                  <%= link_to "Sair", destroy_user_session_path, :method => :delete %></li>
-                </ul>
-              </li>
-              <li><%= link_to "Adicionar link", new_link_path %></li>
-            <% else %>
-              <li><%= link_to "Entrar", new_user_session_path %></li>
-              <li><%= link_to "Cadastre-se", new_user_registration_path %></li>
-              <!-- <li><%= link_to "Entrar", "/users/sign_in" %></li>
-              <li><%= link_to "Cadastre-se", "/users/sign_up" %></li> -->
-            <% end %>
-          </ul>
+          <div style="margin-left:40px" class="span12">
+            <ul class="nav pull-left">
+              <li><a class="brand" href="/"><%= image_tag "/images/pizza-24.png" %> Gostosinho</a></li>
+            </ul>
+            <ul class="nav pull-right">
+              <% if user_signed_in? %>
+                <li id="avatar"><%= image_tag "/images/avatar-32.png" %></li>
+                <li class="active dropdown" id="nav-profile">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#nav-profile">
+                    Perfil <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to "Meus Links", users_path %></li>
+                    <li><a href="#" data-target="#usersPasswordModal" data-toggle="modal">Alterar senha</a></li>
+                    <li class="divider"></li>
+                    <li><%= link_to "Sair", destroy_user_session_path, :method => :delete %></li>
+                  </ul>
+                </li>
+                <li><%= link_to "Adicionar link", new_link_path %></li>
+              <% else %>
+                <li><%= link_to "Entrar", new_user_session_path %></li>
+                <li><%= link_to "Cadastre-se", new_user_registration_path %></li>
+                <!-- <li><%= link_to "Entrar", "/users/sign_in" %></li>
+                <li><%= link_to "Cadastre-se", "/users/sign_up" %></li> -->
+              <% end %>
+            </ul>
+          </div>
         </div><!--/.nav-collapse -->
       </div>
     </div>
