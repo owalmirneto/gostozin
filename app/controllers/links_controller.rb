@@ -6,11 +6,7 @@ class LinksController < ApplicationController
   # GET /links
   # GET /links.json
   def index
-    if user_signed_in?
-      @links = Link.by_user current_user.id
-    else
-      @links = Link.all
-    end
+    @links = Link.by_user current_user
 
     respond_to do |format|
       format.html # index.html.erb

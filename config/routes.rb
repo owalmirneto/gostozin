@@ -3,6 +3,8 @@ Gostozin::Application.routes.draw do
 
   root :to => "home#index"
 
+  # resources :users, :path => :u
+
   resources :links
 
   # The priority is based upon order of creation:

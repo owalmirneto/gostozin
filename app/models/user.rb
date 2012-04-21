@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   
   has_many :links
+  # has_many :categories, through: :links
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
