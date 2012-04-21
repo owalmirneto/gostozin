@@ -1,12 +1,16 @@
 class LinksController < ApplicationController
 
-  # before_filter :authenticate_user!, :except => :index
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => :index
+  # before_filter :authenticate_user!
 
   # GET /links
   # GET /links.json
   def index
-    @links = Link.all
+    if user_signed_in?
+      @links = Link.by_user current_user.id
+    else
+      @links = Link.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb

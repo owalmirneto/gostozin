@@ -1,20 +1,12 @@
-<div id="prompt-alert-modal" class="modal hide fade in">
-  <div class="alert alert-block fade in">
-    <a class="close" data-dismiss="modal" href="#">&times;</a>
-    <h4 class="alert-heading"></h4>
-    <p class="alert-text"></p>
-  </div>
-</div>  
-<div class="modal hide" id="usersPasswordModal">
+<div class="modal hide fade" id="usersPasswordModal">
   <div class="modal-header">
     <a class="close" data-dismiss="modal">&times;</a>
     <h2>Alterar senha</h2>
   </div>
-  <form method="post" action="http://localhost/freelas/compesa-education-corp/users/password" id="users-password-form" class="form-vertical">
+  <form method="post" action="/" class="form-vertical">
     <div class="modal-body">
       <h4>Para alterar sua senha, digite sua senha antiga e forneça uma nova senha.</h4>
       <br />
-      
       <div class="input password control-group"><label for="FormPassword">Sua senha atual</label><input name="password" type="password" id="FormPassword"></input></div>
       <div class="input password control-group"><label for="FormNewPassword">Nova senha desejada</label><input name="new_password" type="password" id="FormNewPassword"></input></div>
       <div class="input password control-group"><label for="FormNewPasswordCheck">Repita a nova senha</label><input name="new_password_check" type="password" id="FormNewPasswordCheck"></input></div>    

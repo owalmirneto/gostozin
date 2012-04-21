@@ -65,8 +65,10 @@
               </li>
               <li><%= link_to "Adicionar link", new_link_path %></li>
             <% else %>
-              <li><%= link_to "Entrar", "/users/sign_in" %></li>
-              <li><%= link_to "Cadastre-se", "/users/sign_up" %></li>
+              <li><%= link_to "Entrar", new_user_session_path %></li>
+              <li><%= link_to "Cadastre-se", destroy_user_session_path %></li>
+              <!-- <li><%= link_to "Entrar", "/users/sign_in" %></li>
+              <li><%= link_to "Cadastre-se", "/users/sign_up" %></li> -->
             <% end %>
           </ul>
         </div><!--/.nav-collapse -->

@@ -1,8 +1,12 @@
 class Link < ActiveRecord::Base
   
-  belongs_to :author, :class_name => "User", :foreign_key => "author_id"
-
+  belongs_to :user
+  
   validates_presence_of :url, :title
 
-  belongs_to :user
+  default_scope order: 'created_at DESC'
+  scope :by_user, lambda { |terms|
+    where('user_id = :t', t: "#{terms}")
+  }
+
 end
