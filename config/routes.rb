@@ -1,12 +1,11 @@
 Gostozin::Application.routes.draw do
-  root :to => "home#index"
+  root :to => "links#index"
 
   resources :links
 
   devise_for :users
 
-  resources :users
-  resources :users, path: :u, only: [:index] 
+  match "u/:username" => "users#links"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

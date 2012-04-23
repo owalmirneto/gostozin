@@ -1,87 +1,44 @@
 class LinksController < ApplicationController
 
   before_filter :authenticate_user!, :except => :index
-  # before_filter :authenticate_user!
 
-  # GET /links
-  # GET /links.json
   def index
     @links = Link.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @links }
-    end
+    respond_with @links
   end
 
-  # GET /links/1
-  # GET /links/1.json
   def show
     @link = Link.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @link }
-    end
+    respond_with @link
   end
 
-  # GET /links/new
-  # GET /links/new.json
   def new
     @link = Link.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @link }
-    end
+    respond_with @link
   end
 
-  # GET /links/1/edit
   def edit
     @link = Link.find(params[:id])
   end
 
-  # POST /links
-  # POST /links.json
   def create
     @link = Link.new(params[:link])
 
-    respond_to do |format|
-      if @link.save
-        format.html { redirect_to @link, notice: 'Link foi adicionado com sucesso.' }
-        format.json { render json: @link, status: :created, location: @link }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @link.errors, status: :unprocessable_entity }
-      end
-    end
+    flash[:notice] = 'Link foi adicionado com sucesso.' if @link.save
+    respond_with @link, :location => links_path
   end
 
-  # PUT /links/1
-  # PUT /links/1.json
   def update
     @link = Link.find(params[:id])
 
-    respond_to do |format|
-      if @link.update_attributes(params[:link])
-        format.html { redirect_to @link, notice: 'Link foi alterado com sucesso.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @link.errors, status: :unprocessable_entity }
-      end
-    end
+    flash[:notice] = 'Link foi adicionado com sucesso.' if @link.save
+    respond_with @link, :location => edit_link_path(@link)
   end
 
-  # DELETE /links/1
-  # DELETE /links/1.json
   def destroy
     @link = Link.find(params[:id])
     @link.destroy
 
-    respond_to do |format|
-      format.html { redirect_to links_url }
-      format.json { head :no_content }
-    end
+    respond_with @link, :location => links_path
   end
 end

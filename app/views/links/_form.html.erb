@@ -4,24 +4,17 @@
   <%= f.hidden_field :user_id, value: current_user.id %>
   
   <div class="input">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, placeholder: "Título do link", :class => "input-xxlarge bold" %>
   </div>
   <div class="input"> 
-    <%= f.label :url %>
-    <%= f.text_field :url %>
+    <%= f.text_field :url, placeholder: "http://seulink.com.br" %>
   </div>
   <div class="input">
-    <%= f.label :description %>
-    <%= f.text_area :description,  %>
+    <%= f.text_field :tags, placeholder: "Digite tags separadas por vírgula" %>
   </div>
   <div class="input">
-    <%= f.label :tags %>
-    <%= f.text_field :tags %>
+    <%= f.text_area :description, placeholder: "Descrição do link", :class => "textarea"  %>
   </div>
-
-  <hr />
-
   <div class="actions">
     <%= f.submit :disable_with => "Aguarde...", :class => "btn btn-primary btn-large" %>
   </div>

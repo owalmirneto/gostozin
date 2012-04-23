@@ -1,21 +1,13 @@
-<h2>Acessar Minha conta</h2>
+<div class="login">
+  <h2>Autenticação</h2>
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+    <div class="input"><%= f.email_field :email, placeholder: "E-mail" %></div>
+    <div class="input"><%= f.password_field :password, placeholder: "Senha" %></div>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div>
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-  </div>
-
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
-
-  <div><%= f.submit "Entrar", :class => "btn-primary" %></div>
-<% end %>
+    <div class="actions">
+      <%= f.submit "Acessar contar", :disable_with => "Aguarde...", :class => "btn btn-large btn-primary" %>
+    </div>
+  <% end %>
 
 <%= render "links" %>
+</div>

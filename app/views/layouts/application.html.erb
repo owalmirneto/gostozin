@@ -39,7 +39,7 @@
 
   <!-- Le title
   ================================================== -->
-  <title>Gostoz.in</title>
+  <title>Gostozinho - Seu báu de links</title>
 </head>
 
 <body>
@@ -49,7 +49,7 @@
         <div class="nav-collapse">
           <div style="margin-left:40px" class="span12">
             <ul class="nav pull-left">
-              <li><a class="brand" href="/"><%= image_tag "/images/pizza-24.png" %> Gostosinho</a></li>
+              <li><a class="brand" href="/"><%= image_tag "/images/pizza-24.png" %> Gostozinho</a></li>
             </ul>
             <ul class="nav pull-right">
               <% if user_signed_in? %>
@@ -59,7 +59,7 @@
                     Perfil <b class="caret"></b>
                   </a>
                   <ul class="dropdown-menu">
-                    <li><%= link_to "Meus Links", users_path %></li>
+                    <li><%= link_to "Meus Links", "/u/#{current_user.username}" %></li>
                     <li><a href="#" data-target="#usersPasswordModal" data-toggle="modal">Alterar senha</a></li>
                     <li class="divider"></li>
                     <li><%= link_to "Sair", destroy_user_session_path, :method => :delete %></li>
@@ -69,8 +69,6 @@
               <% else %>
                 <li><%= link_to "Entrar", new_user_session_path %></li>
                 <li><%= link_to "Cadastre-se", new_user_registration_path %></li>
-                <!-- <li><%= link_to "Entrar", "/users/sign_in" %></li>
-                <li><%= link_to "Cadastre-se", "/users/sign_up" %></li> -->
               <% end %>
             </ul>
           </div>
@@ -91,7 +89,7 @@
 
   <footer class="row">
     <div class="span4 centered">
-      <p>@gostoz.in | Seu báu de links | @wfsneto</p>
+      <p>@gostozinho | Seu báu de links | <%= link_to "@wfsneto",  "http://twitter.com/#!/wfsneto", target: "_blank" %></p>
       <div class="clearfix"></div>
     </div>
   </footer>

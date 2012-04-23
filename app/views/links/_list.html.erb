@@ -1,10 +1,16 @@
 <% links.each do |link| %>
-  <div class="link">
-    <div class="date"><%= l link.created_at, format: :full %></div>
+  <div class="link <%= type_view %>">
+    <!-- <div class="date"><%= l link.created_at, format: :full %></div> -->
     <h3 class="title"><%= link.title %></h3>
     <div class="url">
       <%= link_to link.url, link.url %>
-      <%= link_to "", link.url, class: "icon-share", target: "_blank"  %>
+      <%= link_to "", link.url, :class => "icon-share", target: "_blank"  %>
+      <% if user_signed_in? %>
+        <% if current_user.id == link.user_id %>
+          <%= link_to "", edit_link_path(link), :class => "icon-pencil" %>
+          <%= link_to "", link, :class => "icon-remove", confirm: "Are you sure?", method: :delete %>
+        <% end %>
+      <% end %>
     </div>
     <div class="descriptions"><%= link.description %></div>
     <div class="tags">
@@ -17,14 +23,5 @@
       <i><small>há <%= time_ago_in_words(link.created_at) %> atrás</small></i> <br />
       <i>por: <%= link.user.email %></i>
     </p>
-    <% if user_signed_in? %>
-      <% if current_user.id == link.user_id %>
-      <p class="actions">
-        <%= link_to "", edit_link_path(link), :class => "icon-pencil" %>
-        <%= link_to "", link, :class => "icon-remove", confirm: "Are you sure?", method: :delete %>
-      </p>
-      <% end %>
-    <% end %>
   </div>
-  <hr />
 <% end %>

@@ -4,26 +4,22 @@
   <%= devise_error_messages! %>
 
   <div class="input">
-    <%= f.label :username %>
-    <%= f.text_field :username %>
+    <%= f.text_field :username, placeholder: "Nome de usuário" %>
   </div>
 
   <div class="input">
-    <%= f.label :email %>
-    <%= f.email_field :email %>
+    <%= f.email_field :email, placeholder: "E-mail" %>
   </div>
 
   <div class="input">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, placeholder: "Senha" %>
   </div>
 
   <div class="input">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, placeholder: "Confirmação de senha" %>
   </div>
 
-  <div><%= f.submit "Cadastrar meus dados", :class => "btn-primary" %></div>
+  <div><%= f.submit "Cadastrar meus dados", :class => "btn btn-large btn-primary" %></div>
 <% end %>
 
 <%= render "links" %>

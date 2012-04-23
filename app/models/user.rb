@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  
   has_many :links
   # has_many :categories, through: :links
 
@@ -14,4 +13,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, :username
   
   validates_presence_of :username
+  
+  # def by_username(username)
+  #   where('username = :username', :username => "%#{username}%")
+  # end
 end

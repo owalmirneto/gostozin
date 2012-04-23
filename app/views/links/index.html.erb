@@ -1,10 +1,8 @@
-  <div class="span9">
+<div class="span12">
   <h1>Últimos links</h1>
-
+  <hr />
+    
   <div id="links">
-    <%= render "list", links: @links %>  
+    <%= render "list", links: @links, type_view: 'aside' %>
   </div>
-</div>
-<div class="span2">
-  <%= image_tag "/images/avatar-128.png" %> 
 </div>

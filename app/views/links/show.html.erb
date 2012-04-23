@@ -1,25 +1,27 @@
-<p id="notice"><%= notice %></p>
-
+<p id="alert"><%= notice %></p>
+<% locale = "activerecord.attributes.link" %>
 <p>
-  <b>Title:</b>
+  <b><%=t "#{locale}.title" %>:</b>
   <%= @link.title %>
 </p>
 
 <p>
-  <b>Url:</b>
+  <b><%=t "#{locale}.url" %>:</b>
   <%= @link.url %>
 </p>
 
 <p>
-  <b>Description:</b>
+  <b><%=t "#{locale}.description" %>:</b>
   <%= @link.description %>
 </p>
 
 <p>
-  <b>Tags:</b>
-  <%= @link.tags %>
+  <b><%=t "#{locale}.tags" %>:</b>
+  <% tags = @link.tags.split "," %>
+  <% tags.each do |tag| %>
+    <span class="label label-info"><%= tag %></span>
+  <% end %>
 </p>
 
-
-<%= link_to 'Edit', edit_link_path(@link) %> |
-<%= link_to 'Back', links_path %>
+<%= link_to 'Editar este link', edit_link_path(@link), :class => "btn btn-mini" %>
+<%= link_to 'Ver últimos links', links_path, :class => "btn btn-mini" %>
