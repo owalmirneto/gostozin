@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  after_create :welcome_email 
+  
   has_many :links
   # has_many :categories, through: :links
 
@@ -17,4 +19,10 @@ class User < ActiveRecord::Base
   # def by_username(username)
   #   where('username = :username', :username => "%#{username}%")
   # end
+
+
+  private
+    def welcome_email
+      UserMailer.welcome_email(self)
+    end
 end

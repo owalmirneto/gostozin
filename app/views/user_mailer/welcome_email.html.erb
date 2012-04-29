@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h3>Seja bem vindo ao gostozinho, </h3>
+    <p>
+      Seu cadastro foi concluido com sucesso.<br/>
+      Seu e-mail para login é <%= @user.username %>.
+    </p>
+    <p>
+      Para adicionar links  faça login em <%= link_to new_user_session_url, new_user_session_url %>.
+    </p>
+    <p>Obrigado por se juntar-se a nós!</p>
+  </body>
+</html>
