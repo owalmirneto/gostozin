@@ -18,6 +18,6 @@ class User < ActiveRecord::Base
 
   protected
     def welcome_email
-      UserMailer.welcome_email(self)
+      UserMailer.welcome_email(self).deliver
     end
 end
