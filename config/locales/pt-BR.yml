@@ -197,6 +197,11 @@ pt-BR:
       short: ! '%d/%m, %H:%M h'
       full: ! '%d de %B de %Y'
     pm: ''
+  #will_paginate
+  will_paginate:
+    next_label: Próxima
+    previous_label: Anterior
+    page_gap: ...
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:
     errors:

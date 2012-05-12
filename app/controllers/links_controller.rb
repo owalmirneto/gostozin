@@ -3,7 +3,7 @@ class LinksController < ApplicationController
   before_filter :authenticate_user!, :except => :index
 
   def index
-    @links = Link.all
+    @links = Link.paginate(page: params[:page])
     respond_with @links
   end
 
@@ -12,20 +12,8 @@ class LinksController < ApplicationController
     respond_with @link
   end
 
-  def new
-    @link = Link.new
-    respond_with @link
-  end
-
   def edit
     @link = Link.find(params[:id])
-  end
-
-  def create
-    @link = Link.new(params[:link])
-
-    flash[:notice] = 'Link foi adicionado com sucesso.' if @link.save
-    respond_with @link, :location => links_path
   end
 
   def update
@@ -35,10 +23,20 @@ class LinksController < ApplicationController
     respond_with @link, :location => edit_link_path(@link)
   end
 
+  def new
+    @link = Link.new
+    respond_with @link
+  end
+
+  def create
+    @link = Link.new(params[:link])
+    flash[:notice] = 'Link foi adicionado com sucesso.' if @link.save
+    respond_with @link, :location => links_path
+  end
+
   def destroy
     @link = Link.find(params[:id])
     @link.destroy
-
     respond_with @link, :location => links_path
   end
 end

@@ -1,8 +1,12 @@
 <div class="span12">
-  <h1>Últimos links</h1>
+  <h2>Últimos links</h2>
   <hr />
     
   <div id="links">
     <%= render "list", links: @links, type_view: 'aside' %>
   </div>
+
+  <br clear="all" />
+  
+  <%= will_paginate @links %>
 </div>
