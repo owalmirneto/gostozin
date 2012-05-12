@@ -196,6 +196,7 @@ pt-BR:
       long: ! '%A, %d de %B de %Y, %H:%M h'
       short: ! '%d/%m, %H:%M h'
       full: ! '%d de %B de %Y'
+      mini_short: ! '%d %B %Y'
     pm: ''
   #will_paginate
   will_paginate:

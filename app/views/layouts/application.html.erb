@@ -62,7 +62,7 @@
                     <li><%= link_to "Meus Links", "/u/#{current_user.username}" %></li>
                     <!-- <li><a href="#" data-target="#usersPasswordModal" data-toggle="modal">Alterar senha</a></li> -->
                     <li class="divider"></li>
-                    <li><%= link_to "Sair", destroy_user_session_path, :method => :delete %></li>
+                    <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
                   </ul>
                 </li>
                 <li><%= link_to "Adicionar link", new_link_path %></li>

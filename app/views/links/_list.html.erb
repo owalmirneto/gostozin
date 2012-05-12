@@ -1,27 +1,39 @@
-<% links.each do |link| %>
-  <div class="link <%= type_view %>">
-    <!-- <div class="date"><%= l link.created_at, format: :full %></div> -->
-    <h3 class="title"><%= link.title %></h3>
-    <div class="url">
-      <%= link_to link.url, link.url %>
-      <%= link_to "", link.url, :class => "icon-share", target: "_blank"  %>
-      <% if user_signed_in? %>
-        <% if current_user.id == link.user_id %>
-          <%= link_to "", edit_link_path(link), :class => "icon-pencil" %>
-          <%= link_to "", link, :class => "icon-remove", confirm: "Are you sure?", method: :delete %>
-        <% end %>
-      <% end %>
-    </div>
-    <div class="descriptions"><%= link.description %></div>
-    <div class="tags">
-      <% tags = link.tags.split "," %>
-      <% tags.each do |tag| %>
-        <span class="label label-info"><%= tag %></span>
-      <% end %>
-    </div>
-    <p class="time_ago">
-      <i><small>há <%= time_ago_in_words(link.created_at) %> atrás</small></i> <br />
-      <i>por: <%= link.user.email %></i>
-    </p>
+<% if links.blank? %>
+
+  <div class="alert alert-block">
+    <button class="close" data-dismiss="alert">×</button>
+    <h4 class="alert-heading">Atenção!</h4>
+    <p>Nenhum link foi adicionado, para adicionar um link ao seu baú de links <%= link_to "clique aqui", new_link_path %></p>
   </div>
+
+<% else %>
+
+  <% links.each do |link| %>
+    <div class="link <%= type_view %>">
+      <!-- <div class="date"><%= l link.created_at, format: :full %></div> -->
+      <h3 class="title"><%= link.title %></h3>
+      <div class="url">
+        <%= link_to link.url, link.url %>
+        <%= link_to "", link.url, :class => "icon-share", target: "_blank"  %>
+        <% if user_signed_in? %>
+          <% if current_user.id == link.user_id %>
+            <%= link_to "", edit_link_path(link), :class => "icon-pencil" %>
+            <%= link_to "", link, :class => "icon-remove", confirm: "Are you sure?", method: :delete %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="descriptions"><%= link.description %></div>
+      <div class="tags">
+        <% tags = link.tags.split "," %>
+        <% tags.each do |tag| %>
+          <span class="label label-info"><%= tag %></span>
+        <% end %>
+      </div>
+      <p class="time_ago">
+        <i><small>há <%= time_ago_in_words(link.created_at) %> atrás</small></i> <br />
+        <i>por: <%= link.user.email %></i>
+      </p>
+    </div>
+  <% end %>
+
 <% end %>

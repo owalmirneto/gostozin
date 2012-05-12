@@ -20,7 +20,7 @@ class LinksController < ApplicationController
     @link = Link.find(params[:id])
 
     flash[:notice] = 'Link foi altualizado com sucesso.' if @link.update_attributes(params[:link])
-    respond_with @link, :location => edit_link_path(@link)
+    respond_with @link, :location => links_path
   end
 
   def new
