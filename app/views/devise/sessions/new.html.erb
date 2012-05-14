@@ -1,13 +1,13 @@
-<div class="login">
+<div id="login">
   <h2>Autenticação</h2>
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-    <div class="input"><%= f.email_field :email, placeholder: "E-mail" %></div>
-    <div class="input"><%= f.password_field :password, placeholder: "Senha" %></div>
+    <div class="input"><%= f.email_field :email, placeholder: "E-mail", class: "text-field" %></div>
+    <div class="input"><%= f.password_field :password, placeholder: "Senha", class: "text-field" %></div>
 
     <div class="actions">
       <%= f.submit "Acessar contar", :disable_with => "Aguarde...", :class => "btn btn-large btn-primary" %>
     </div>
   <% end %>
 
-<%= render "links" %>
+  ou <%= link_to "cadastre-se", new_user_registration_path %> e junte-se ao <%= link_to "@gostozinho", "/" %>
 </div>

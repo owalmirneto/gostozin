@@ -1,25 +1,27 @@
-<h2>Cadastre-se</h2>
+<div id="logout">
+  <h2>Cadastre-se</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div class="input">
-    <%= f.text_field :username, placeholder: "Nome de usuário" %>
-  </div>
+    <div class="input">
+      <%= f.text_field :username, placeholder: "Nome de usuário", class: "text-field" %>
+    </div>
 
-  <div class="input">
-    <%= f.email_field :email, placeholder: "E-mail" %>
-  </div>
+    <div class="input">
+      <%= f.email_field :email, placeholder: "E-mail", class: "text-field" %>
+    </div>
 
-  <div class="input">
-    <%= f.password_field :password, placeholder: "Senha" %>
-  </div>
+    <div class="input">
+      <%= f.password_field :password, placeholder: "Senha", class: "text-field" %>
+    </div>
 
-  <div class="input">
-    <%= f.password_field :password_confirmation, placeholder: "Confirmação de senha" %>
-  </div>
+    <div class="input">
+      <%= f.password_field :password_confirmation, placeholder: "Confirmação de senha", class: "text-field" %>
+    </div>
 
-  <div><%= f.submit "Cadastrar meus dados", :class => "btn btn-large btn-primary" %></div>
-<% end %>
+    <div><%= f.submit "Cadastrar meus dados", :class => "btn btn-large btn-primary" %></div>
+  <% end %>
 
-<%= render "links" %>
+  ou <%= link_to "fazer login", new_user_session_path %> com sua conta Gostozinho
+</div>

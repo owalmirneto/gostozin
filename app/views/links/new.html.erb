@@ -1,5 +1,9 @@
-<h1>Adicionar link</h1>
+<div class="show-grid">
+  <div class="span12">
+    <h1>Adicionar link</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', links_path %>
+    <%= render 'form' %>
+    
+    <%= link_to 'ver meus links', "/u/#{current_user.username}", :class => "btn btn-mini", style: "float:left;" %>
+  </div>
+</div>
