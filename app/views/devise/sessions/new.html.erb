@@ -1,4 +1,4 @@
-<div id="login">
+<div id="div-forms-large">
   <h2>Autenticação</h2>
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
     <div class="input"><%= f.email_field :email, placeholder: "E-mail", class: "text-field" %></div>
@@ -9,5 +9,5 @@
     </div>
   <% end %>
 
-  ou <%= link_to "cadastre-se", new_user_registration_path %> e junte-se ao <%= link_to "@gostozinho", "/" %>
+  ou <%= link_to "cadastre-se", new_user_registration_path %> e junte-se ao <%= link_to "@Gostozinho", "/" %>
 </div>

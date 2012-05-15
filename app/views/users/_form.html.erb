@@ -1,0 +1,14 @@
+<%= form_for @user do |f| %>
+  <%#= render "shared/flash_messages", resources: @user %>
+  <div class="input">
+    <%= f.text_field :username %>
+  </div>
+  
+  <div class="input"> 
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit :disable_with => "Aguarde...", :class => "btn btn-primary btn-large" %>
+  </div>
+<% end %>

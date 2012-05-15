@@ -5,16 +5,7 @@ Gostozin::Application.routes.draw do
 
   devise_for :users
 
-  # resources :users do
-  #   member do
-  #     post :update
-  #   end
+  match "/update" => "users#edit"
 
-  #   collection do
-  #     get :links
-  #   end
-  # end
-
-  # member :users, as: "u/:username"
   match "u/:username" => "users#links"
 end

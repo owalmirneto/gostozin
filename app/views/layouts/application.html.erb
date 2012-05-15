@@ -80,17 +80,19 @@
 
   <div class="container" id="container">
     <% if notice.present? or alert.present? %>
-      <div class="alert"><%= notice %> <%= alert %></div>
+      <div class="alert">
+        <div class="close" data-dismiss="alert">×</div>
+        <%= notice %> <%= alert %>
+      </div>
     <% end %>
     <%= yield %> 
-    <div class="clearfix"></div>
   </div> <!-- /container -->
   
   <hr />
 
   <footer class="row">
     <div class="span4 centered">
-      <p>@gostozinho | Seu báu de links | <%= link_to "@wfsneto",  "http://twitter.com/#!/wfsneto", target: "_blank" %></p>
+      <p><%= link_to "@Gostozinho", "/" %> | Seu báu de links | <%= link_to "@wfsneto",  "http://twitter.com/#!/wfsneto", target: "_blank" %></p>
       <div class="clearfix"></div>
     </div>
   </footer>
