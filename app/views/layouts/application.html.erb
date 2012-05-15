@@ -51,6 +51,11 @@
             <ul class="nav pull-left">
               <li><a class="brand" href="/"><%= image_tag "/images/gostozin-32.png", width: 24 %> Gostozinho</a></li>
             </ul>
+            <!-- 
+            <form class="navbar-search pull-left" action="">
+              <input type="text" class="search-query span2" placeholder="Don't work">
+            </form>
+            -->
             <ul class="nav pull-right">
               <% if user_signed_in? %>
                 <li id="avatar"><%= image_tag "/images/avatar-32.png" %></li>
@@ -60,7 +65,7 @@
                   </a>
                   <ul class="dropdown-menu">
                     <li><%= link_to "Meus Links", "/u/#{current_user.username}" %></li>
-                    <li><%= link_to "Meus Dados", "/users/update" %></li>
+                    <li><%= link_to "Meus Dados", "/u/#{current_user.username}/edit" %></li>
                     <!-- <li><a href="#" data-target="#usersPasswordModal" data-toggle="modal">Alterar senha</a></li> -->
                     <li class="divider"></li>
                     <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>

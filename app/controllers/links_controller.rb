@@ -14,10 +14,12 @@ class LinksController < ApplicationController
 
   def edit
     @link = Link.find(params[:id])
+    self.can_update(@link)
   end
 
   def update
     @link = Link.find(params[:id])
+    self.can_update(@link)
 
     flash[:notice] = 'Link foi altualizado com sucesso.' if @link.update_attributes(params[:link])
     respond_with @link, :location => links_path
@@ -39,4 +41,9 @@ class LinksController < ApplicationController
     @link.destroy
     respond_with @link, :location => links_path
   end
+
+  protected
+    def can_update(link)
+      redirect_to links_path if link.user_id != current_user.id
+    end
 end
