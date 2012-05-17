@@ -1,7 +1,7 @@
 <div class="span10">
   <ul id="" class="nav nav-tabs">
     <li><%= link_to "Meus dados", "/u/#{current_user.username}/edit" %></li>
-    <li><%= link_to "Minha senha", "/u/#{current_user.username}/pass" %></li>
+    <li><%= link_to "Minha senha", "/users/edit" %></li>
     <li class="active"><%= link_to "Meu avatar", "/u/#{current_user.username}/avatar" %></li>
   </ul>
 </div>
@@ -9,9 +9,12 @@
   <div class="span12">
     <div class="tab-pane" id="my-avatar">
       <h2>Meu Avatar</h2>
-      <h3>Em breve...</h3>
-      <br clear="all" />
+      <% hash = Digest::MD5.hexdigest current_user.email %>
+      <% image_url = "http://1.gravatar.com/avatar/#{hash}" %>
+      <%= image_tag "#{image_url}?size=150" %>
     </div>
+    
+    <br clear="all" />
 
     <%= link_to 'Ver meus links', links_path, :class => "btn btn-mini" %>
   </div>

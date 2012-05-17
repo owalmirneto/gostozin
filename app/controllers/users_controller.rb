@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   def update_pass
     save = @user.update_attributes(params[:user]) if can_save_pass
     flash[:notice] = 'Sua senha foi alterada com sucesso.' if save
-    redirect_to "/u/#{current_user.username}/pass"
+    redirect_to "/users/edit"
   end
 
   protected
