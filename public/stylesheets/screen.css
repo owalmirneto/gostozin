@@ -51,9 +51,9 @@ form .textarea { height:100px;width: 530px; }
 #div-forms-large form input.text-field, #div-forms-large form input { width:270px;height:27px;font-size:17px;padding-left:10px;padding-top:5px; }
 #div-forms-large form input[type=button], #div-forms-large form input[type=submit] { width:287px;height:37px; }
 
-.width-100 { width:100px }
-.width-200 { width:200px }
-.width-300 { width:300px }
-.width-400 { width:400px }
-.width-500 { width:500px }
-.width-600 { width:600px }
+.width-100 { width:100px !important; }
+.width-200 { width:200px !important; }
+.width-300 { width:300px !important; }
+.width-400 { width:400px !important; }
+.width-500 { width:500px !important; }
+.width-600 { width:600px !important; }

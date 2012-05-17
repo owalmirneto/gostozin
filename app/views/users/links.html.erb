@@ -10,14 +10,12 @@
   </div>
 
   <div class="span2">
-    <% hash = Digest::MD5.hexdigest current_user.email %>
-    <% image_url = "http://1.gravatar.com/avatar/#{hash}?size=150" %>
-    <%= image_tag image_url %>
+    <%= image_gravatar(current_user.email, 150) %>
     <h3> @<%= @user.username %> </h3>
     <div id="user_data">
       <p>desde: <%= l @user.created_at, format: :mini_short %></p>
-      <!-- @user.url -->
-      <p><%= link_to "http://localhost/", "#", target: "_blank" %></p>
+      <p><%= link_to @user.url, @user.url, target: "_blank" %></p>
+      <p><b>Sobre min</b>: <%= @user.bio %></p>
       <p>RSS: <%= link_to "público", "#" %> | <%= link_to "privado", "#" %> </p>
       <p>Follow <%= link_to "0 Usuários", "#" %></p>
       <p>Followed by <%= link_to "0 Usuários", "#" %></p>

@@ -51,16 +51,14 @@
             <ul class="nav pull-left">
               <li><a class="brand" href="/"><%= image_tag "/images/gostozin-32.png", width: 24 %> Gostozinho</a></li>
             </ul>
-            <!-- 
+            
             <form class="navbar-search pull-left" action="">
               <input type="text" class="search-query span2" placeholder="Don't work">
             </form>
-            -->
+           
             <ul class="nav pull-right">
               <% if user_signed_in? %>
-                <% hash = Digest::MD5.hexdigest current_user.email %>
-                <% image_url = "http://1.gravatar.com/avatar/#{hash}?size=28" %>
-                <li id="avatar"><%= image_tag image_url, style: "margin-top:5px" %></li>
+                <li id="avatar" style="margin-top:5px"><%= image_gravatar(current_user.email, 28) %></li>
                 <li class="active dropdown" id="nav-profile">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#nav-profile">
                     Perfil <b class="caret"></b>

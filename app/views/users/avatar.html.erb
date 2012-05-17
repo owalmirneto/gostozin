@@ -6,16 +6,19 @@
   </ul>
 </div>
 <div id="div-forms-large" class="show-grid">
-  <div class="span12">
+  <div class="span4">
     <div class="tab-pane" id="my-avatar">
       <h2>Meu Avatar</h2>
-      <% hash = Digest::MD5.hexdigest current_user.email %>
-      <% image_url = "http://1.gravatar.com/avatar/#{hash}" %>
-      <%= image_tag "#{image_url}?size=150" %>
+      <%= image_gravatar(current_user.email, 256) %>
     </div>
     
     <br clear="all" />
 
     <%= link_to 'Ver meus links', links_path, :class => "btn btn-mini" %>
+  </div>
+
+  <div class="span4">
+    <h3>Observações</h3>
+    <p>Caso esteja aparecendo essa imagem <%= image_tag "http://1.gravatar.com/avatar/171?size=20" %> é por que provavelmente você não possui uma conta <%= link_to "gravatar", "http://pt.gravatar.com" %>. Para criar uma conta gravatar clique <%= link_to "aqui", "https://pt.gravatar.com/site/signup" %> e use o mesmo email que você usou para criar sua conta gostozinho.</p>
   </div>
 </div>

@@ -6,7 +6,7 @@
   </ul>
 </div>
 <div id="div-forms-large" class="show-grid">
-  <div class="span12">
+  <div class="span4">
     <div class="tab-pane" id="my-pass">
       <h2>Minha senha</h2>
       <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
@@ -30,5 +30,10 @@
     </div>
 
     <%= link_to 'Ver meus links', links_path, :class => "btn btn-mini" %>
+  </div>
+
+  <div class="span4">
+    <h3>Observações</h3>
+    <p>Aqui você pode alterar sua "Senha" digitando sua "Senha" antiga em seguida sua nova "Senha" e logo após confimando sua nova senha</p>
   </div>
 </div>

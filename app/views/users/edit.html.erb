@@ -6,7 +6,7 @@
   </ul>
 </div>
 <div id="div-forms-large" class="show-grid">
-  <div class="span12">
+  <div class="span4">
     <h2>Meus dados</h2>
     <%= form_for @user, url: "/u/#{current_user.username}/update_data" do |f| %>
       <%= render "shared/flash_messages", resources: @user %>
@@ -22,11 +22,21 @@
         <%= f.text_field :url, placeholder: "http://meusite.com.br" %>
       </div>
 
+
+      <div class="input"> 
+        <%= f.text_area :bio, placeholder: "Digite algo sobre você...", class: "textarea width-400" %>
+      </div>
+
       <div class="actions">
         <%= f.submit :disable_with => "Aguarde...", :class => "btn btn-primary btn-large" %>
       </div>
     <% end %>
 
     <%= link_to 'Ver meus links', links_path, :class => "btn btn-mini" %>
+  </div>
+
+  <div class="span4">
+    <h3>Observações</h3>
+    <p>Aqui você pode alterar todos os seus dados, tais como "Nome de usuário", "Email", "Link pessoal" e "Biografia", sendo que "Nome de usuário" e "Email" são obrigatórios</p>
   </div>
 </div>
