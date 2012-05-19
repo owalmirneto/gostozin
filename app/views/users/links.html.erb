@@ -16,14 +16,15 @@
       <p>desde: <%= l @user.created_at, format: :mini_short %></p>
       <p><%= link_to @user.url, @user.url, target: "_blank" %></p>
       <p><b>Sobre min</b>: <%= @user.bio %></p>
+      <!--
       <p>RSS: <%= link_to "público", "#" %> | <%= link_to "privado", "#" %> </p>
       <p>Follow <%= link_to "0 Usuários", "#" %></p>
       <p>Followed by <%= link_to "0 Usuários", "#" %></p>
-
+      -->
       <hr />
 
       <ul id="counters">
-        <li><%= link_to "1 baú(s)", "#" %></li>
+        <!-- <li><%= link_to "1 baú(s)", "#" %></li> -->
         <li><%= link_to "#{@user.links.count} link(s)",  %></li>
       </ul>
     </div>
@@ -31,21 +32,12 @@
     <hr />
 
     <div class="user_tags">
-      <h4>
-        Tags 
-        <select class="span1" style="width:100px">
-          <option>popular</option>
-          <option>alfabetica</option>
-        </select>
-      </h4>
-      <% tags = [
-        {label: "test", quantity: 7}, 
-        {label: "wfsneto", quantity: 17}, 
-        {label: "walmir", quantity: 9}, 
-        {label: "neto", quantity: 5}
-      ] %>
-      <% tags.each do |tag| %>
-        <span class="badge badge-info"><%= tag[:label] %>: <%= tag[:quantity] %></span> <br />
+      <h4>Tags</h4>
+      <% @links.each do |link| %>
+        <% tags = link.tags.split "," %>
+        <% tags.each do |tag| %>
+          <span class="label label-info"><%= tag %></span>
+        <% end %>
       <% end %>
     </div>
   </div>

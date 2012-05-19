@@ -9,4 +9,8 @@ class Link < ActiveRecord::Base
   scope :search, lambda { |search|
     where("title LIKE :s OR url LIKE :s OR description LIKE :s OR tags LIKE :s", :s => "%#{search}%")
   }
+
+  scope :by_user, lambda { |user|
+    where("user_id =  :id", :id => "%#{user.id}%")
+  }
 end
