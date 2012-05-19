@@ -5,4 +5,8 @@ class Link < ActiveRecord::Base
   validates_format_of :url, :with => URI::regexp(%w(http https))
 
   default_scope order: 'created_at DESC'
+
+  scope :search, lambda { |search|
+    where("title LIKE :s OR url LIKE :s OR description LIKE :s OR tags LIKE :s", :s => "%#{search}%")
+  }
 end

@@ -3,7 +3,11 @@ class LinksController < ApplicationController
   before_filter :authenticate_user!, :except => :index
 
   def index
-    @links = Link.paginate(page: params[:page])
+    @search = params[:search]
+
+    @links = Link.scoped
+    @links = @links.search(@search) if @search
+    @links = @links.paginate(page: params[:page])
     respond_with @links
   end
 

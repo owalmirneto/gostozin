@@ -2,11 +2,11 @@
   <div class="span12">
     <h2>Últimos links adicionado</h2>
     <div id="links">
-      <%= render "list", links: @links, type_view: 'aside' %>
+      <%= render "list", links: @links %>
     </div>
 
     <br clear="all" />
     
-    <%= will_paginate @links %>
+    <%#= will_paginate @links %>
   </div>
 </div>
