@@ -17,7 +17,7 @@ class Link < ActiveRecord::Base
   }
 
   scope :by_user, lambda { |user|
-    where("user_id =  :id", :id => "%#{user.id}%")
+    where("user_id =  :id", :id => user.id)
   }
 
   scope :get_public, lambda { 

@@ -1,15 +1,19 @@
 class UsersController < ApplicationController
 
-  before_filter :load_resources, :only => [:update_data, :update_pass]
+  before_filter :authenticate_user!, :except => :links
+
+  before_filter :load_resources, :except => [:links]
 
   def links
     @user = User.find_by_username(params[:username])
     redirect_to links_path unless @user
-    @links = Link.paginate(page: params[:page], conditions: ["user_id = ?", @user.id]) if @user
 
-    respond_with @links do |format|
-      format.atom
-    end
+    @links = Link.scoped
+    @links = @links.get_public unless user_signed_in?
+    @links = @links.by_user(@user) if @user
+    @links = @links.paginate(page: params[:page])
+
+    respond_with @links
   end
 
   def update_data
