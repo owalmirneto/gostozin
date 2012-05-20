@@ -1,0 +1,23 @@
+<!-- Masthead
+================================================== -->
+<header class="jumbotron subhead">
+
+  <% if h1.present? %>
+    <% h1.each do |h| %>
+      <h1 class="<%= h[:class] %>"><%= h[:title] %></h1>
+      <p class="lead <%= h[:class] %>"><%= h[:subtitle] %></p>
+    <% end %>
+  <% else %>
+    <h1>Gostozinho</h1>
+    <p class="lead">Seu báu de links.</p>
+  <% end %>
+  <% if subnav.present? %>
+  <div class="subnav">
+    <ul class="nav nav-pills">
+      <% subnav.each do |nav| %>
+      <li><a href="<%= nav[:href] %>"><%= nav[:title] %></a></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+</header>

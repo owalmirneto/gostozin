@@ -1,12 +1,16 @@
 <div class="show-grid">
   <div class="span12">
-    <h2>Últimos links adicionado</h2>
-    <div id="links">
+    <% if @search.present? %>
+      <h2>Links filtrado por: "<%= @search %>"</h2>
+    <% else %>
+      <h2>Últimos links adicionado</h2>
+    <% end %>
+    <div id="links" class="grid-row">
       <%= render "list", links: @links %>
     </div>
 
     <br clear="all" />
     
-    <%#= will_paginate @links %>
+    <%= will_paginate @links %>
   </div>
 </div>

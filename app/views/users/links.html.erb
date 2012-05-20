@@ -14,8 +14,10 @@
     <h3> @<%= @user.username %> </h3>
     <div id="user_data">
       <p>desde: <%= l @user.created_at, format: :mini_short %></p>
-      <p><%= link_to @user.url, @user.url, target: "_blank" %></p>
-      <p><b>Sobre min</b>: <%= @user.bio %></p>
+      <p><%= link_to @user.url, @user.url, target: "_blank" if @user.url.present? %></p>
+      <% if @user.bio.present? %>
+        <p><b>Sobre min</b>: <%= @user.bio %></p>
+      <% end %>
       <!--
       <p>RSS: <%= link_to "público", "#" %> | <%= link_to "privado", "#" %> </p>
       <p>Follow <%= link_to "0 Usuários", "#" %></p>
@@ -34,11 +36,13 @@
     <div class="user_tags">
       <h4>Tags</h4>
       <% @links.each do |link| %>
-        <% tags = link.tags.split "," %>
-        <% tags.each do |tag| %>
-          <span class="label label-info"><%= tag %></span>
+        <% link.tags.each do |tag| %>
+          <!-- <span class="label label-info"></span> -->
+            <%#= link_to tag.name,  %>
+          <%= link_to_unless_current tag.name, links_path(:tag => tag.name), :style => "margin:0 3px 3px 0", :class => "btn btn-mini btn-primary" %>
         <% end %>
       <% end %>
+
     </div>
   </div>
 </div>

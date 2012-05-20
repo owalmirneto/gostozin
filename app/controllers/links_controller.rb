@@ -7,8 +7,11 @@ class LinksController < ApplicationController
 
     @links = Link.scoped
     @links = @links.search(@search) if @search
+    @links = @links.by_tag(params[:tag]) if params[:tag]
     @links = @links.paginate(page: params[:page])
     respond_with @links
+
+    flash[:notice] = 'testando o teste testado para ver como fica o flash message' 
   end
 
   def show
@@ -25,7 +28,10 @@ class LinksController < ApplicationController
     @link = Link.find(params[:id])
     self.can_update(@link)
 
-    flash[:notice] = 'Link foi altualizado com sucesso.' if @link.update_attributes(params[:link])
+    if @link.update_attributes(params[:link])
+      self.save_tags(@link)
+      flash[:notice] = 'Link foi altualizado com sucesso.' 
+    end
     respond_with @link, :location => links_path
   end
 
@@ -36,7 +42,10 @@ class LinksController < ApplicationController
 
   def create
     @link = Link.new(params[:link])
-    flash[:notice] = 'Link foi adicionado com sucesso.' if @link.save
+    if @link.save
+      self.save_tags(@link)
+      flash[:notice] = 'Link foi adicionado com sucesso.' 
+    end
     respond_with @link, :location => links_path
   end
 
@@ -49,5 +58,12 @@ class LinksController < ApplicationController
   protected
     def can_update(link)
       redirect_to links_path if link.user_id != current_user.id
+    end
+
+    def save_tags(link)
+      Tag.delete_all("link_id = #{@link.id}")
+      @link.tag_names.split(",").each do |tag|
+        Tag.new(link_id: @link.id, name: tag).save
+      end
     end
 end

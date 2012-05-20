@@ -1,23 +1,31 @@
-<div id="div-forms-large" class="width-300">
-  <h2>Cadastre-se</h2>
-
+<%= render "shared/masthead", 
+  :subnav => [], 
+  :h1 => [{
+    :title =>"Cadastre-se",
+    :class =>"center",
+    :subtitle =>"Preencha o formulário abaixo para juntar-se ao Gostozinho"
+  }] 
+%>
+<section class="content">
+  <!-- yield -->
+  <div id="div-forms-large" class="width-300">
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
     <div class="input">
-      <%= f.text_field :username, placeholder: "Nome de usuário", class: "text-field" %>
+      <%= f.text_field :username, placeholder: "Nome de usuário", :class => "text-field" %>
     </div>
 
     <div class="input">
-      <%= f.email_field :email, placeholder: "E-mail", class: "text-field" %>
+      <%= f.email_field :email, placeholder: "E-mail", :class => "text-field" %>
     </div>
 
     <div class="input">
-      <%= f.password_field :password, placeholder: "Senha", class: "text-field" %>
+      <%= f.password_field :password, placeholder: "Senha", :class => "text-field" %>
     </div>
 
     <div class="input">
-      <%= f.password_field :password_confirmation, placeholder: "Confirmação de senha", class: "text-field" %>
+      <%= f.password_field :password_confirmation, placeholder: "Confirmação de senha", :class => "text-field" %>
     </div>
 
     <div><%= f.submit "Cadastrar meus dados", :class => "btn btn-large btn-primary" %></div>
@@ -25,3 +33,6 @@
 
   ou <%= link_to "fazer login", new_user_session_path %> com sua conta <%= link_to "@Gostozinho", "/" %>
 </div>
+</section>
+
+<%= render "shared/footer" %>

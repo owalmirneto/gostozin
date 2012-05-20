@@ -1,0 +1,7 @@
+<%= render "shared/masthead", :subnav => [], :title => "Autenticação" %>
+
+<section class="content">
+  <!-- yield -->
+</section>
+
+<%= render "shared/footer" %>

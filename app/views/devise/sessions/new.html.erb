@@ -1,13 +1,25 @@
-<div id="div-forms-large" class="width-300">
-  <h2>Autenticação</h2>
-  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-    <div class="input"><%= f.email_field :email, placeholder: "E-mail", class: "text-field" %></div>
-    <div class="input"><%= f.password_field :password, placeholder: "Senha", class: "text-field" %></div>
+<%= render "shared/masthead", 
+  :subnav => [], 
+  :h1 => [{
+    :title =>"Autenticação",
+    :class =>"center",
+    :subtitle =>"Digite seu e-mail e senha para acessar sua conta do Gostozinho"
+  }]
+%>
 
-    <div class="actions">
-      <%= f.submit "Acessar contar", :disable_with => "Aguarde...", :class => "btn btn-large btn-primary" %>
-    </div>
-  <% end %>
+<section class="content">
+  <div id="div-forms-large" class="width-300">
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      <div class="input"><%= f.email_field :email, placeholder: "E-mail", :class => "text-field" %></div>
+      <div class="input"><%= f.password_field :password, placeholder: "Senha", :class => "text-field" %></div>
 
-  ou <%= link_to "cadastre-se", new_user_registration_path %> e junte-se ao <%= link_to "@Gostozinho", "/" %>
-</div>
+      <div class="actions">
+        <%= f.submit "Acessar contar", :disable_with => "Aguarde...", :class => "btn btn-large btn-primary" %>
+      </div>
+    <% end %>
+
+    ou <%= link_to "cadastre-se", new_user_registration_path %> e junte-se ao <%= link_to "@Gostozinho", "/" %>
+  </div>
+</section>
+
+<%= render "shared/footer" %>

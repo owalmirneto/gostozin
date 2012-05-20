@@ -16,15 +16,14 @@
         <% if user_signed_in? %>
           <% if current_user.id == link.user_id %>
             <%= link_to "", edit_link_path(link), :class => "icon-pencil" %>
-            <%= link_to "", link, :class => "icon-remove", confirm: "Are you sure?", method: :delete %>
+            <%= link_to "", link, :class => "icon-remove", confirm: "Tem certeza que deseja?", method: :delete %>
           <% end %>
         <% end %>
       </div>
       <div class="descriptions"><%= truncate link.description, :length => 255 %></div>
       <div class="tags">
-        <% tags = link.tags.split "," %>
-        <% tags.each do |tag| %>
-          <span class="label label-info"><%= tag %></span>
+        <% link.tags.each do |tag| %>
+          <span class="label label-info"><%= tag.name %></span>
         <% end %>
       </div>
       <p class="time_ago">
@@ -34,5 +33,4 @@
       <%= "<hr />".html_safe if link.id != last_id %>
     <% end %>
   </div>
-
 <% end %>

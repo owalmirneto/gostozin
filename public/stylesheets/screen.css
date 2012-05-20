@@ -3,10 +3,11 @@
  APPLICATION
  ========================================================================== */
 
-body {padding: 60px 0 40px 0}
+
 footer {text-align: center}
-.alert {margin-bottom: 0 !important}
+.alert {margin-bottom: 0 !important; text-align:center;font-size:17px;}
 .centered {margin:0 auto; float: none;}
+.center {text-align:center;}
 
 
 /**
@@ -57,3 +58,5 @@ form .textarea { height:100px;width: 530px; }
 .width-400 { width:400px !important; }
 .width-500 { width:500px !important; }
 .width-600 { width:600px !important; }
+
+section.content{ padding:0px; }

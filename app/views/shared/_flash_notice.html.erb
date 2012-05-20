@@ -1,0 +1,6 @@
+<% if notice.present? or alert.present? %>
+  <div class="alert">
+    <div class="close" data-dismiss="alert">×</div>
+    <%= notice %> <%= alert %>
+  </div>
+<% end %>
