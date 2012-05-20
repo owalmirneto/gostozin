@@ -1,14 +1,15 @@
-<div class="span10">
-  <ul id="" class="nav nav-tabs">
-    <li><%= link_to "Meus dados", "/u/#{current_user.username}/edit" %></li>
-    <li class="active"><%= link_to "Minha senha", "/users/edit" %></li>
-    <li><%= link_to "Meu avatar", "/u/#{current_user.username}/avatar" %></li>
-  </ul>
-</div>
-<div id="div-forms-large" class="show-grid">
-  <div class="span4">
-    <div class="tab-pane" id="my-pass">
-      <h2>Minha senha</h2>
+<%= render "shared/masthead", 
+  :subnav => [
+    {:title => "Meus dados", :href => "/u/#{current_user.username}/edit"},
+    {:title => "Minha senha", :href => "/users/edit", :current => "active"},
+    {:title => "Meu avatar", :href => "/u/#{current_user.username}/avatar"}
+  ], 
+  :h1 => [{:title =>"Minha senha"}]
+%>
+
+<section class="content">
+  <div id="div-forms-large" class="row">
+    <div class="span6">
       <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
         <%= devise_error_messages! %>
         <div class="input">
@@ -27,13 +28,16 @@
           <%= f.submit :disable_with => "Aguarde...", :value => "Atualizar senha", :class => "btn btn-primary btn-large" %>
         </div>
       <% end %>
+
+      <%= link_to 'Ver meus links', links_path, :class => "btn btn-mini" %>
     </div>
 
-    <%= link_to 'Ver meus links', links_path, :class => "btn btn-mini" %>
+    <div class="span5">
+      <h3>Observações</h3>
+      <p>
+        Aqui você pode alterar sua senha digitando sua 
+        <span class="label label-important">senha antiga</span>
+        em seguida sua <span class="label label-important">nova senha</span> e logo após <span class="label label-important">confime sua nova senha</span></p>
+    </div>
   </div>
-
-  <div class="span4">
-    <h3>Observações</h3>
-    <p>Aqui você pode alterar sua "Senha" digitando sua "Senha" antiga em seguida sua nova "Senha" e logo após confimando sua nova senha</p>
-  </div>
-</div>
+</section>

@@ -19,4 +19,12 @@ class Link < ActiveRecord::Base
   scope :by_user, lambda { |user|
     where("user_id =  :id", :id => "%#{user.id}%")
   }
+
+  scope :get_public, lambda { 
+    where("is_public =  :is", :is => true)
+  }
+
+  scope :get_private, lambda { 
+    where("is_public =  :is", :is => false)
+  }
 end

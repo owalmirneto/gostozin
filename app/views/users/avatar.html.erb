@@ -1,24 +1,31 @@
-<div class="span10">
-  <ul id="" class="nav nav-tabs">
-    <li><%= link_to "Meus dados", "/u/#{current_user.username}/edit" %></li>
-    <li><%= link_to "Minha senha", "/users/edit" %></li>
-    <li class="active"><%= link_to "Meu avatar", "/u/#{current_user.username}/avatar" %></li>
-  </ul>
-</div>
-<div id="div-forms-large" class="show-grid">
-  <div class="span4">
-    <div class="tab-pane" id="my-avatar">
-      <h2>Meu Avatar</h2>
-      <%= image_gravatar(current_user.email, 256) %>
+<%= render "shared/masthead", 
+  :subnav => [
+    {:title => "Meus dados", :href => "/u/#{current_user.username}/edit"},
+    {:title => "Minha senha", :href => "/users/edit"},
+    {:title => "Meu avatar", :href => "/u/#{current_user.username}/avatar", :current => "active"}
+  ], 
+  :h1 => [{:title =>"Meu Avatar"}]
+%>
+<section class="content">
+  <div id="avatar" class="row">
+    <div class="span6">
+      <div style="width:256px;margin:0 auto">
+        <a href="#" class="thumbnail"><%= image_gravatar(current_user.email, 256) %></a>
+        <br clear="all" />
+        <p><%= link_to 'Ver meus links', links_path, :class => "btn btn-mini" %></p>
+      </div>
     </div>
-    
-    <br clear="all" />
 
-    <%= link_to 'Ver meus links', links_path, :class => "btn btn-mini" %>
+    <div class="span5">
+      <h3>Observações</h3>
+      <p>
+        Caso esteja visualizando essa imagem <%= image_gravatar("hash", 20) %> 
+        é por que provavelmente você não possui uma conta 
+        <%= link_to "gravatar", "http://pt.gravatar.com" %> ou possui e não adicionou uma imagem. 
+        Para criar uma conta gravatar clique 
+        <%= link_to "aqui", "https://pt.gravatar.com/site/signup" %> 
+        e use o mesmo email que você usou para criar sua conta gostozinho.
+      </p>
+    </div>
   </div>
-
-  <div class="span4">
-    <h3>Observações</h3>
-    <p>Caso esteja aparecendo essa imagem <%= image_tag "http://1.gravatar.com/avatar/171?size=20" %> é por que provavelmente você não possui uma conta <%= link_to "gravatar", "http://pt.gravatar.com" %>. Para criar uma conta gravatar clique <%= link_to "aqui", "https://pt.gravatar.com/site/signup" %> e use o mesmo email que você usou para criar sua conta gostozinho.</p>
-  </div>
-</div>
+</section>

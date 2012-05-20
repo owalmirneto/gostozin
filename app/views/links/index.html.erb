@@ -1,16 +1,20 @@
-<div class="show-grid">
-  <div class="span12">
-    <% if @search.present? %>
-      <h2>Links filtrado por: "<%= @search %>"</h2>
-    <% else %>
-      <h2>Últimos links adicionado</h2>
-    <% end %>
-    <div id="links" class="grid-row">
+<%= render "shared/masthead", 
+  :subnav => [], 
+  :h1 => [{
+    :title => @search.present? ? "Links" : "Links recentes",
+    :subtitle => @search.present? ? "Resultado da busca por: '#{@search}'" : nil
+  }]
+%>
+
+<section class="content">
+  <div class="row">
+  <div id="links" class="grid-row">
+    <div class="span12">
       <%= render "list", links: @links %>
     </div>
 
     <br clear="all" />
-    
     <%= will_paginate @links %>
   </div>
 </div>
+</section>

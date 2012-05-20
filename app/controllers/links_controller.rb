@@ -6,12 +6,10 @@ class LinksController < ApplicationController
     @search = params[:search]
 
     @links = Link.scoped
-    @links = @links.search(@search) if @search
+    @links = @links.get_public
     @links = @links.by_tag(params[:tag]) if params[:tag]
     @links = @links.paginate(page: params[:page])
     respond_with @links
-
-    flash[:notice] = 'testando o teste testado para ver como fica o flash message' 
   end
 
   def show
@@ -37,6 +35,7 @@ class LinksController < ApplicationController
 
   def new
     @link = Link.new
+    @link.is_public = true
     respond_with @link
   end
 

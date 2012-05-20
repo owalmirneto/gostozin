@@ -22,13 +22,18 @@
       </div>
       <div class="descriptions"><%= truncate link.description, :length => 255 %></div>
       <div class="tags">
+        <% if link.is_public %>
+          <i><span class="label label-success">público</span></i>
+        <% else %>
+          <i><span class="label label-important">privado</span></i>
+        <% end %>
         <% link.tags.each do |tag| %>
           <span class="label label-info"><%= tag.name %></span>
         <% end %>
       </div>
       <p class="time_ago">
         <i><small>há <%= time_ago_in_words(link.created_at) %> atrás</small></i> <br />
-        <i>por: <%= link.user.email %></i>
+        <i>de: <%= link.user.email %></i>
       </p>
       <%= "<hr />".html_safe if link.id != last_id %>
     <% end %>

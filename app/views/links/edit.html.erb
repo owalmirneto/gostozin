@@ -1,9 +1,14 @@
-<div class="show-grid">
-  <div class="span12">
-    <h1>Editar link</h1>
+<%= render "shared/masthead", 
+  :subnav => [], 
+  :h1 => [{:title =>"Editar link"}]
+%>
 
-    <%= render 'form' %>
+<section class="content">
+  <div class="row">
+    <div class="span12">
+      <%= render 'form' %>
 
-    <%= link_to 'Ver meus links', links_path, :class => "btn btn-mini" %>
+      <%= link_to 'Ver meus links', links_path, :class => "btn btn-mini" %>
+    </div>
   </div>
-</div>
+</section>
