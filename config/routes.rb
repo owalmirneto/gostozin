@@ -1,7 +1,7 @@
 Gostozin::Application.routes.draw do
   root :to => "links#index"
 
-  resources :links
+  resources :links, :except => :show
 
   devise_for :users
 

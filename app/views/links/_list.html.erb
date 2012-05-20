@@ -23,10 +23,11 @@
       <div class="descriptions"><%= truncate link.description, :length => 255 %></div>
       <div class="tags">
         <% if link.is_public %>
-          <i><span class="label label-success">público</span></i>
+          <i><span class="badge badge-success">público</span></i>
         <% else %>
-          <i><span class="label label-important">privado</span></i>
+          <i><span class="badge badge-important">privado</span></i>
         <% end %>
+        &nbsp;
         <% link.tags.each do |tag| %>
           <span class="label label-info"><%= tag.name %></span>
         <% end %>

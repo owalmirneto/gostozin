@@ -19,7 +19,7 @@
     <%= f.text_field :tag_names, placeholder: "Digite tags separadas por vírgula" %>
   </div>
 
-  <% if @link.tags.present? %>
+  <% if @link.tags.present? %>:
     <% @link.tags.each do |tag| %>
       <span class="label label-info"><%= tag.name %></span>
     <% end %>

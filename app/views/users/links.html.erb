@@ -18,7 +18,7 @@
         <h3> @<%= @user.username %> </h3>
         <div id="user_data">
           <p>desde: <%= l @user.created_at, format: :mini_short %></p>
-          <p><%= link_to @user.url, @user.url, target: "_blank" if @user.url.present? %></p>
+          <p><i class="icon-globe"></i>  <%= link_to @user.url, @user.url, target: "_blank" if @user.url.present? %></p>
           <% if @user.bio.present? %>
             <p><b>Sobre min</b>: <%= @user.bio %></p>
           <% end %>
@@ -38,7 +38,8 @@
         <hr />
 
         <div class="user_tags">
-          <h4>Tags</h4>
+          <h4><i class="icon-tags"></i> Tags</h4>
+          <br/>
           <% @links.each do |link| %>
             <% link.tags.each do |tag| %>
               <!-- <span class="label label-info"></span> -->
