@@ -30,7 +30,7 @@ class LinksController < ApplicationController
       self.save_tags(@link)
       flash[:notice] = 'Link foi altualizado com sucesso.' 
     end
-    respond_with @link, :location => links_path
+    respond_with @link, :location => "/u/#{current_user.username}"
   end
 
   def new
@@ -45,13 +45,13 @@ class LinksController < ApplicationController
       self.save_tags(@link)
       flash[:notice] = 'Link foi adicionado com sucesso.' 
     end
-    respond_with @link, :location => links_path
+    respond_with @link, :location => "/u/#{current_user.username}"
   end
 
   def destroy
     @link = Link.find(params[:id])
     @link.destroy
-    respond_with @link, :location => links_path
+    respond_with @link, :location => "/u/#{current_user.username}"
   end
 
   protected

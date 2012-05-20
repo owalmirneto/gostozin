@@ -14,7 +14,7 @@
       </div>
 
       <div class="span2">
-        <a href="#" class="thumbnail" style="width:160px"><%= image_gravatar(current_user.email, 160) %></a>
+        <a href="#" class="thumbnail" style="width:160px"><%= image_gravatar(@user.email, 160) %></a>
         <h3> @<%= @user.username %> </h3>
         <div id="user_data">
           <p>desde: <%= l @user.created_at, format: :mini_short %></p>

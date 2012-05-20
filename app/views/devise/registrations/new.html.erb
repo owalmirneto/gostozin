@@ -28,7 +28,7 @@
       <%= f.password_field :password_confirmation, placeholder: "Confirmação de senha", :class => "text-field" %>
     </div>
 
-    <div><%= f.submit "Cadastrar meus dados", :class => "btn btn-large btn-primary" %></div>
+    <div><%= f.submit "Cadastrar meus dados", :disable_with => "Aguarde...", :class => "btn btn-large btn-primary" %></div>
   <% end %>
 
   ou <%= link_to "fazer login", new_user_session_path %> com sua conta <%= link_to "@Gostozinho", "/" %>

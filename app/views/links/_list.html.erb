@@ -33,7 +33,7 @@
       </div>
       <p class="time_ago">
         <i><small>há <%= time_ago_in_words(link.created_at) %> atrás</small></i> <br />
-        <i>de: <%= link.user.email %></i>
+        <i>criado por: <%= link_to link.user.username, "/u/#{link.user.username}", :class => "btn btn-mini btn-inverse" %></i>
       </p>
       <%= "<hr />".html_safe if link.id != last_id %>
     <% end %>
