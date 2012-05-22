@@ -1,0 +1,14 @@
+<%= form_for(@feedback) do |f| %>
+  <div class="field">
+    <%= f.text_field :name, :placeholder => "Digite seu nome" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :email, :placeholder => "Digite seu email" %>
+  </div>
+  <div class="field">
+    <%= f.text_area :message, :placeholder => "Escreva aqui sua mensagem..." %>
+  </div>
+  <div class="actions">
+    <%= f.submit :disable_with => "Aguarde...", :value => "Enviar mensagem", :class => "btn btn-primary btn-large" %>
+  </div>
+<% end %>

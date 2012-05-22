@@ -230,3 +230,7 @@ pt-BR:
         email: "E-mail"
         password: "Senha"
         password_confirmation: "Confirmação de senha"
+      feedback:
+        name: "Nome "
+        email: "E-mail"
+        message: "Mensagem"

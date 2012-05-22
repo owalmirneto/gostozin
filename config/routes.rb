@@ -1,11 +1,17 @@
 Gostozin::Application.routes.draw do
+  resources :feedbacks, :only => [:new, :create, :about]
+
   root :to => "links#index"
 
   resources :links, :except => :show
 
+  match "/contact" => "feedbacks#new"
+  
+  match "/about" => "feedbacks#about"
+  
   devise_for :users
 
-  match "u/:username" => "users#links"
+  match "/u/:username" => "users#links"
 
   get "/u/:username/edit" => "users#edit"
   put "/u/:username/update_data" => "users#update_data"
