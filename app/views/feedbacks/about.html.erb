@@ -1,13 +1,32 @@
 <%= render "shared/masthead", 
   :subnav => [], 
-  :h1 => [{:title =>"Sobre o gostozino"}]
+  :h1 => [{:title =>"Sobre o Gostozino", :class => "center"}]
 %>
 
 <section class="content">
-  <article>
-    <p>
-      O Gostozinho foi criado apenas para fins didáticos levando em conta a linguagem e o framework Ruby on Rails. 
-      Foi usado o <%= link_to "delicious.com", "http://delicious.com" %> como referência para o projeto
-    </p>
-  </article>
+  <div style="margin:0 auto;width:650px">
+    <article>
+      <h3>O que é o Gostozinho?</h3>   
+      <p>
+        O Gostozinho é um lugar para coletar e apresentar as suas paixões de toda a web. 
+        Use o Gostozinho para salvar vídeos, fotos, tweets, posts, ou artigos de sobre temas de qualquer natureza.
+      </p>
+      <p>O Gostozinho foi criado apenas para fins didáticos com o intuito de  linguagem e o framework Ruby on Rails.</p>
+
+      <h3>O que foi usado?</h3>
+      <ul>
+        <li>
+          Ruby on Rails (<a href="http://rubyonrails.org/">rubyonrails.org</a>)<br />
+        </li>
+        <li>Twitter Bootstrap (<a target="_blank" href="http://twitter.github.com/bootstrap">twitter.github.com/bootstrap</a>)</li>
+      </ul>
+
+      <h4><i>Algumas gems usadas</i></h4>
+      <ul>
+        <li>devise (<a target="_blank" href="http://rubygems.org/gems/devise">rubygems.org/gems/devise</a>)</li>
+        <li>will_paginate (<a target="_blank" href="http://rubygems.org/gems/will_paginate">rubygems.org/gems/will_paginate</a>)</li>
+        <li>will_paginate (<a target="_blank" href="http://guides.rubyonrails.org/action_mailer_basics.html">guides.rubyonrails.org/action_mailer_basics.html</a>)</li>
+      </ul>
+    </article>
+  </div>
 </section>
