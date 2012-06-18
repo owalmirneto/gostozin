@@ -1,13 +1,15 @@
-<%= form_for @link do |f| %>
+<%= form_for @link, :html => { :id => "form_link" } do |f| %>
   <%= render "shared/flash_messages", resources: @link %>
 
   <%= f.hidden_field :user_id, value: current_user.id %>
   
   <div class="input">
+    <%= f.label :title, :style => "display:none" %>
     <%= f.text_field :title, placeholder: "Título do link", :class => "input-xxlarge bold" %>
   </div>
   
   <div class="input"> 
+    <%= f.label :url, :style => "display:none" %>
     <%= f.text_field :url, placeholder: "http://seulink.com.br" %>
   </div>
   
@@ -30,6 +32,6 @@
     <%= f.text_area :description, placeholder: "Descrição do link", :class => "textarea"  %>
   </div>
   <div class="actions">
-    <%= f.submit :disable_with => "Aguarde...", :class => "btn btn-primary btn-large" %>
+    <%= f.submit :class => "btn btn-primary btn-large" %>
   </div>
 <% end %>

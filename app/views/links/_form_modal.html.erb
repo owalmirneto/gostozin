@@ -1,7 +1,8 @@
-<%= form_for @link_for_form do |f| %>
+<%= javascript_include_tag "/scripts/modules/links" %>
+
+<%= form_for @link_for_form, :html => { :id => "modal_link" } do |f| %>
   <div id="modal_new_link" class="modal hide fade" style="display: none;">
     <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.hidden_field :is_public, value: "t" %>
       
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal">×</button>
@@ -9,16 +10,22 @@
     </div>
     <div class="modal-body">
       <div class="input">
+        <%= f.label :title, :style => "display:none" %>
         <%= f.text_field :title, placeholder: "Título do link", :class => "input-xxlarge bold" %>
       </div>
       
       <div class="input"> 
+        <%= f.label :url, :style => "display:none" %>
         <%= f.text_field :url, placeholder: "http://seulink.com.br" %>
+      </div>
+
+      <div class="input checkbox"> 
+        <%= f.check_box :is_public %> <span>link público</span>
       </div>
     </div>
     <div class="modal-footer">
       <%= link_to "Cancelar", "#", :"data-dismiss" => "modal" %>
-      <%= f.submit :disable_with => "Aguarde...", :class => "btn btn-primary" %>
+      <%= f.submit :class => "btn btn-primary" %>
     </div>
   </div>
 <% end %>

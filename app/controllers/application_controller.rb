@@ -8,5 +8,6 @@ class ApplicationController < ActionController::Base
   protected
     def link_for_form
       @link_for_form = Link.new
+      @link_for_form.is_public = true
     end
 end

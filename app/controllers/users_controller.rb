@@ -4,8 +4,6 @@ class UsersController < ApplicationController
 
   before_filter :load_resources, :except => [:links]
 
-  before_filter  :link_for_form
-
   def links
     @user = User.find_by_username(params[:username])
     redirect_to links_path unless @user
@@ -36,9 +34,5 @@ class UsersController < ApplicationController
 
     def can_save_pass
       current_user.password == params[:user][:current_password] && params[:user][:password] == params[:user][:password_confirmation]
-    end
-
-    def link_for_form
-      @link_for_form = Link.new
     end
 end
