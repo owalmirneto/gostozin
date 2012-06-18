@@ -9,6 +9,7 @@ pt-BR:
     - Sex
     - Sáb
     abbr_month_names:
+    - Zer
     - Jan
     - Fev
     - Mar
@@ -22,6 +23,7 @@ pt-BR:
     - Nov
     - Dez
     month_names:
+    - Zerembro
     - Janeiro
     - Fevereiro
     - Março

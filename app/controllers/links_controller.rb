@@ -4,8 +4,6 @@ class LinksController < ApplicationController
 
   before_filter :can_do, :only => [:update, :edit, :destroy]
 
-  before_filter :link_for_form
-
   def index
     @search = params[:search]
 
@@ -65,10 +63,5 @@ class LinksController < ApplicationController
           Tag.new(link_id: link.id, name: tag).save
         end
       end
-    end
-
-    def link_for_form
-      @link_for_form = Link.new
-      @link_for_form.is_public = true
     end
 end
