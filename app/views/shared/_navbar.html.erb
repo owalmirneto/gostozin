@@ -21,12 +21,11 @@
               <ul class="dropdown-menu">
                 <li><%= link_to "Meus Links", "/u/#{current_user.username}" %></li>
                 <li><%= link_to "Meus Dados", "/u/#{current_user.username}/edit" %></li>
-                <!-- <li><a href="#" data-target="#usersPasswordModal" data-toggle="modal">Alterar senha</a></li> -->
                 <li class="divider"></li>
                 <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
               </ul>
             </li>
-            <li><%= link_to "Adicionar link", new_link_path %></li>
+            <li><%= link_to "Adicionar link", "#modal_new_link", :"data-toggle" => "modal" %></li>
           <% else %>
             <li><%= link_to "Entrar", new_user_session_path %></li>
             <li><%= link_to "Cadastre-se", new_user_registration_path %></li>

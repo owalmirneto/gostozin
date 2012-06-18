@@ -1,4 +1,6 @@
 class FeedbacksController < ApplicationController
+  before_filter :link_for_form
+  
   def index
     @feedbacks = Feedback.all
     respond_with @feedbacks
@@ -20,6 +22,11 @@ class FeedbacksController < ApplicationController
     else
       flash[:notice] = 'Todos os campos s&atilde;o obrigat&oacute;rios, por favor preencha'.html_safe
     end
-      respond_with @feedback, :location => root_path
+    respond_with @feedback, :location => root_path
   end
+
+  protected
+    def link_for_form
+      @link_for_form = Link.new
+    end
 end

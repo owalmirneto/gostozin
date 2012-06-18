@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0057)#buttons -->
 <html lang="en">
 <head>
   <!-- Le meta tags
@@ -72,5 +71,8 @@
     <%= render "shared/footer" %>
   </div><!-- /container -->
 
+  <% if user_signed_in? %>
+    <%= render "links/form_modal" %>
+  <% end %>
 </body>
 </html>
