@@ -5,8 +5,8 @@ Feedbacks.init = function () {
 };
 
 Feedbacks.validations =  function () {
-  var modal = $('#new_feedback').jcheck({ language: 'pt-br' });
-  modal.validates("feedback[name]", "feedback[email]", "feedback[message]", {presence: true});
+  var feedback = $('#new_feedback').jcheck({ language: 'pt-br' });
+  feedback.validates("feedback[name]", "feedback[email]", "feedback[message]", {presence: true});
 };
 
 $(document).ready( function  () { Feedbacks.init(); });

@@ -1,11 +1,14 @@
+<%= javascript_include_tag "/scripts/modules/users" %>
+
 <%= render "shared/masthead", 
   :subnav => [], 
   :h1 => [{
-    :title =>"Cadastre-se",
+    :title =>"Cadastre-se sdadsa",
     :class =>"center",
     :subtitle =>"Preencha o formulário abaixo para juntar-se ao Gostozinho"
   }] 
 %>
+
 <section class="content">
   <!-- yield -->
   <div id="div-forms-large" class="width-300">
@@ -13,22 +16,26 @@
     <%= devise_error_messages! %>
 
     <div class="input">
+      <%= f.label :username, :style => "display:none" %>
       <%= f.text_field :username, placeholder: "Nome de usuário", :class => "text-field" %>
     </div>
 
     <div class="input">
+      <%= f.label :email, :style => "display:none" %>
       <%= f.email_field :email, placeholder: "E-mail", :class => "text-field" %>
     </div>
 
     <div class="input">
+      <%= f.label :password, :style => "display:none" %>
       <%= f.password_field :password, placeholder: "Senha", :class => "text-field" %>
     </div>
 
     <div class="input">
+      <%= f.label :password_confirmation, :style => "display:none" %>
       <%= f.password_field :password_confirmation, placeholder: "Confirmação de senha", :class => "text-field" %>
     </div>
 
-    <div><%= f.submit "Cadastrar meus dados", :disable_with => "Aguarde...", :class => "btn btn-large btn-primary" %></div>
+    <div><%= f.submit "Cadastrar meus dados", :class => "btn btn-large btn-primary" %></div>
   <% end %>
 
   ou <%= link_to "fazer login", new_user_session_path %> com sua conta <%= link_to "@Gostozinho", "/" %>
