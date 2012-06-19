@@ -12,27 +12,27 @@
 <section class="content">
   <div id="div-forms-large" class="row">
     <div class="span5">
-      <%= form_for @user,  :html => { :id => "edit_user" }, url: "/u/#{current_user.username}/update_data" do |f| %>
-        <%= render "shared/flash_messages", resources: @user %>
+      <%= form_for @user,  :html => { :id => "edit_user" }, :url => "/u/#{current_user.username}/update_data" do |f| %>
+        <%= render "shared/flash_messages", :resources => @user %>
         <div class="input">
-          <%= f.label :username, :style => "display:none" %>
+          <%= f.label :username, :class => "hide" %>
           <%= f.text_field :username %>
         </div>
 
         <div class="input"> 
-          <%= f.label :email, :style => "display:none" %>
+          <%= f.label :email, :class => "hide" %>
           <%= f.text_field :email %>
         </div>
 
         <div class="input"> 
-          <%= f.label :url, :style => "display:none" %>
-          <%= f.text_field :url, placeholder: "http://meusite.com.br" %>
+          <%= f.label :url, :class => "hide" %>
+          <%= f.text_field :url, :placeholder => "http://meusite.com.br" %>
         </div>
 
 
         <div class="input"> 
-          <%= f.label :bio, :style => "display:none" %>
-          <%= f.text_area :bio, placeholder: "Digite algo sobre você...", :class => "textarea width-400" %>
+          <%= f.label :bio, :class => "hide" %>
+          <%= f.text_area :bio, :placeholder => "Digite algo sobre você...", :class => "textarea width-400" %>
         </div>
 
         <div class="actions">

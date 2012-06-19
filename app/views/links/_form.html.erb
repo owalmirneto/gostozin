@@ -1,16 +1,16 @@
 <%= form_for @link, :html => { :id => "form_link" } do |f| %>
-  <%= render "shared/flash_messages", resources: @link %>
+  <%= render "shared/flash_messages", :resources => @link %>
 
   <%= f.hidden_field :user_id, value: current_user.id %>
   
   <div class="input">
-    <%= f.label :title, :style => "display:none" %>
-    <%= f.text_field :title, placeholder: "Título do link", :class => "input-xxlarge bold" %>
+    <%= f.label :title, :class => "hide" %>
+    <%= f.text_field :title, :placeholder => "Título do link", :class => "input-xxlarge bold" %>
   </div>
   
   <div class="input"> 
-    <%= f.label :url, :style => "display:none" %>
-    <%= f.text_field :url, placeholder: "http://seulink.com.br" %>
+    <%= f.label :url, :class => "hide" %>
+    <%= f.text_field :url, :placeholder => "http://seulink.com.br" %>
   </div>
   
   <div class="input checkbox"> 
@@ -18,7 +18,7 @@
   </div>
 
   <div class="input">
-    <%= f.text_field :tag_names, placeholder: "Digite tags separadas por vírgula" %>
+    <%= f.text_field :tag_names, :placeholder => "Digite tags separadas por vírgula" %>
   </div>
 
   <% if @link.tags.present? %>
@@ -29,7 +29,7 @@
   <% end %>
   
   <div class="input">
-    <%= f.text_area :description, placeholder: "Descrição do link", :class => "textarea"  %>
+    <%= f.text_area :description, :placeholder => "Descrição do link", :class => "textarea"  %>
   </div>
   <div class="actions">
     <%= f.submit :class => "btn btn-primary btn-large" %>

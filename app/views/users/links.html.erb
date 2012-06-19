@@ -22,8 +22,8 @@
           <% if @user.bio.present? %>
             <p><b>Sobre min</b>: <%= @user.bio %></p>
           <% end %>
+          <p>RSS: <%= link_to "público", "/u/#{@user.username}.xml" %></p>
           <!--
-          <p>RSS: <%= link_to "público", "#" %> | <%= link_to "privado", "#" %> </p>
           <p>Follow <%= link_to "0 Usuários", "#" %></p>
           <p>Followed by <%= link_to "0 Usuários", "#" %></p>
           -->

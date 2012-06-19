@@ -13,12 +13,12 @@
   <div id="div-forms-large" class="width-300">
     <%= form_for(resource, :as => resource_name, :html => { :id => "login" }, :url => session_path(resource_name)) do |f| %>
       <div class="input">
-        <%= f.label :email, :style => "display:none" %>
-        <%= f.email_field :email, placeholder: "E-mail", :class => "text-field" %>
+        <%= f.label :email, :class => "hide" %>
+        <%= f.email_field :email, :placeholder => "E-mail", :class => "text-field" %>
       </div>
       <div class="input">
-        <%= f.label :password, :style => "display:none" %>
-        <%= f.password_field :password, placeholder: "Senha", :class => "text-field" %>
+        <%= f.label :password, :class => "hide" %>
+        <%= f.password_field :password, :placeholder => "Senha", :class => "text-field" %>
       </div>
 
       <div class="actions">

@@ -16,23 +16,23 @@
     <%= devise_error_messages! %>
 
     <div class="input">
-      <%= f.label :username, :style => "display:none" %>
-      <%= f.text_field :username, placeholder: "Nome de usuário", :class => "text-field" %>
+      <%= f.label :username, :class => "hide" %>
+      <%= f.text_field :username, :placeholder => "Nome de usuário", :class => "text-field" %>
     </div>
 
     <div class="input">
-      <%= f.label :email, :style => "display:none" %>
-      <%= f.email_field :email, placeholder: "E-mail", :class => "text-field" %>
+      <%= f.label :email, :class => "hide" %>
+      <%= f.email_field :email, :placeholder => "E-mail", :class => "text-field" %>
     </div>
 
     <div class="input">
-      <%= f.label :password, :style => "display:none" %>
-      <%= f.password_field :password, placeholder: "Senha", :class => "text-field" %>
+      <%= f.label :password, :class => "hide" %>
+      <%= f.password_field :password, :placeholder => "Senha", :class => "text-field" %>
     </div>
 
     <div class="input">
-      <%= f.label :password_confirmation, :style => "display:none" %>
-      <%= f.password_field :password_confirmation, placeholder: "Confirmação de senha", :class => "text-field" %>
+      <%= f.label :password_confirmation, :class => "hide" %>
+      <%= f.password_field :password_confirmation, :placeholder => "Confirmação de senha", :class => "text-field" %>
     </div>
 
     <div><%= f.submit "Cadastrar meus dados", :class => "btn btn-large btn-primary" %></div>

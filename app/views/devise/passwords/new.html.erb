@@ -3,7 +3,7 @@
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.email_field :email, placeholder: "Digite seu e-mail" %></div>
+  <div><%= f.email_field :email, :placeholder => "Digite seu e-mail" %></div>
   
   <div><%= f.submit "Enviar instruções por e-mail", :class => "btn btn-large btn-danger" %></div>
 <% end %>

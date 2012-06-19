@@ -10,13 +10,13 @@
     </div>
     <div class="modal-body">
       <div class="input">
-        <%= f.label :title, :style => "display:none" %>
-        <%= f.text_field :title, placeholder: "Título do link", :class => "input-xxlarge bold" %>
+        <%= f.label :title, :class => "hide" %>
+        <%= f.text_field :title, :placeholder => "Título do link", :class => "input-xxlarge bold" %>
       </div>
       
       <div class="input"> 
-        <%= f.label :url, :style => "display:none" %>
-        <%= f.text_field :url, placeholder: "http://seulink.com.br" %>
+        <%= f.label :url, :class => "hide" %>
+        <%= f.text_field :url, :placeholder => "http://seulink.com.br" %>
       </div>
 
       <div class="input checkbox"> 
