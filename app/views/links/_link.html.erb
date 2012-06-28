@@ -1,0 +1,33 @@
+<h3 class="title"><%= link.title %></h3>
+<div class="url">
+  <%= link_to link.url, link.url %>
+  <%= link_to "", link.url, :class => "icon-share", target: "_blank"  %>
+  <% if user_signed_in? %>
+    <% if current_user.id == link.user_id %>
+      <%= link_to "", edit_link_path(link), :class => "icon-pencil" %>
+      <%= link_to "", link, :class => "icon-remove", confirm: "Tem certeza que deseja?", method: :delete %>
+    <% end %>
+  <% end %>
+</div>
+<div class="descriptions"><%= truncate link.description, :length => 255 %></div>
+<div class="tags">
+  <% if link.is_public %>
+    <i><span class="badge badge-success">público</span></i>
+  <% else %>
+    <i><span class="badge badge-important">privado</span></i>
+  <% end %>
+  &nbsp;
+  <% link.tags.each do |tag| %>
+    <span class="label label-info"><%= tag.name %></span>
+  <% end %>
+</div>
+<p class="time_ago">
+  <i><small>
+    há <%= time_ago_in_words(link.created_at) %> atrás 
+    <!-- 
+    em <span class="date"><%= l link.created_at, format: :full %></span> -->
+  </small></i> <br />
+  <% unless @user.present? %>
+    <i>criado por: <%= link_to link.user.username, "/u/#{link.user.username}", :class => "btn btn-mini btn-inverse" %></i>
+  <% end %>
+</p>

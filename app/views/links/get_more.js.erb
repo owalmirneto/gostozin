@@ -1,0 +1,9 @@
+$("#more_links").append("<%= escape_javascript(render :partial => "link", :collection => @links) %>");
+
+<% unless @links.total_pages == @links.current_page %>
+  $("#more-links").attr("href", "<%= get_more_links_path(:page => @links.next_page) %>");
+<% else %>
+  $("#more-links").hide();
+<% end %>
+
+<%= @search %>

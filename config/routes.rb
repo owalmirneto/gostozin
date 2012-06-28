@@ -3,7 +3,9 @@ Gostozin::Application.routes.draw do
 
   root :to => "links#index"
 
-  resources :links, :except => :show
+  resources :links do
+    get :get_more, :on => :collection
+  end
 
   match "/contact" => "feedbacks#new"
   

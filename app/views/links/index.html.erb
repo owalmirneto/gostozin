@@ -8,13 +8,17 @@
 
 <section class="content">
   <div class="row">
-  <div id="links" class="grid-row">
-    <div class="span12">
-      <%= render "list", links: @links %>
-    </div>
+    <div id="links" class="grid-row">
+      <div class="span12">
+        <%= render "list", links: @links %>
+      </div>
 
-    <br clear="all" />
-    <%= will_paginate @links %>
+      <%= link_to '<i class="icon-plus"></i> Carregar mais links'.html_safe,
+        get_more_links_path(:page => @links.next_page),
+        :remote => true,
+        :id => "more-links",
+        :class => "btn span3" if @search.blank?
+       %>
+    </div>
   </div>
-</div>
 </section>

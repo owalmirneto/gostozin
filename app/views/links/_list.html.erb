@@ -2,43 +2,20 @@
   <div class="alert alert-block">
     <div class="close" data-dismiss="alert">×</div>
     <h4 class="alert-heading">Atenção!</h4>
-    <p>Nenhum link foi encontrado, quer adicionar um link ao seu baú de links clique <%= link_to "aqui", new_link_path %></p>
+    <p>
+      Nenhum link foi encontrado, quer adicionar
+      um link ao seu baú de links clique 
+      <%= link_to "aqui", new_link_path %>
+    </p>
   </div>
 <% else %>
   <% last_id = links.last.id %>
   <div class="link">
     <% links.each do |link| %>
-      <div class="date"><%= l link.created_at, format: :full %></div>
-      <h3 class="title"><%= link.title %></h3>
-      <div class="url">
-        <%= link_to link.url, link.url %>
-        <%= link_to "", link.url, :class => "icon-share", target: "_blank"  %>
-        <% if user_signed_in? %>
-          <% if current_user.id == link.user_id %>
-            <%= link_to "", edit_link_path(link), :class => "icon-pencil" %>
-            <%= link_to "", link, :class => "icon-remove", confirm: "Tem certeza que deseja?", method: :delete %>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="descriptions"><%= truncate link.description, :length => 255 %></div>
-      <div class="tags">
-        <% if link.is_public %>
-          <i><span class="badge badge-success">público</span></i>
-        <% else %>
-          <i><span class="badge badge-important">privado</span></i>
-        <% end %>
-        &nbsp;
-        <% link.tags.each do |tag| %>
-          <span class="label label-info"><%= tag.name %></span>
-        <% end %>
-      </div>
-      <p class="time_ago">
-        <i><small>há <%= time_ago_in_words(link.created_at) %> atrás</small></i> <br />
-        <% unless @user.present? %>
-          <i>criado por: <%= link_to link.user.username, "/u/#{link.user.username}", :class => "btn btn-mini btn-inverse" %></i>
-        <% end %>
-      </p>
+      <%= render 'links/link', :link => link %>
       <%= "<hr />".html_safe if link.id != last_id %>
     <% end %>
+
+    <div id="more_links"></div>
   </div>
 <% end %>

@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @links = Link.scoped
     @links = @links.get_public unless user_signed_in?
     @links = @links.by_user(@user) if @user
-    @links = @links.paginate(page: params[:page])
+    @links = @links.paginate(:page => params[:page], :per_page => 5)
 
     respond_with @links
   end

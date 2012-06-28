@@ -1,18 +1,17 @@
 # encoding: utf-8
 class LinksController < ApplicationController
   
-  before_filter :authenticate_user!, :except => :index
+  before_filter :authenticate_user!, :except => [:index, :get_more]
 
   before_filter :can_do, :only => [:update, :edit, :destroy]
 
-  def index
-    @search = params[:search]
+  before_filter :more_link, :only => [:index, :get_more]
 
-    @links = Link.scoped
-    @links = @links.get_public
-    @links = @links.by_tag(params[:tag]) if params[:tag]
-    @links = @links.paginate(page: params[:page])
+  def index
     respond_with @links
+  end
+
+  def get_more
   end
 
   def show
@@ -64,5 +63,18 @@ class LinksController < ApplicationController
           Tag.new(link_id: link.id, name: tag).save
         end
       end
+    end
+
+    def more_link
+      @search = params[:search]
+
+      @links = Link.scoped
+      @links = @links.get_public
+      @links = @links.by_user(@user) if @user
+      @links = @links.by_tag(params[:tag]) if params[:tag]
+      @links = @links.search(@search) if @search
+      
+      @links = @links.paginate(:page => params[:page]) if @search
+      @links = @links.paginate(:page => params[:page], :per_page => 5) unless @search
     end
 end
