@@ -75,6 +75,14 @@ class LinksController < ApplicationController
       @links = @links.search(@search) if @search
       
       @links = @links.paginate(:page => params[:page]) if @search
-      @links = @links.paginate(:page => params[:page], :per_page => 5) unless @search
+
+      respond_to do |format|
+        format.html do
+          @links = @links.paginate(:page => params[:page], :per_page => 5) unless @search
+        end
+        format.xml do
+          @links = Link.all()
+        end
+      end
     end
 end
