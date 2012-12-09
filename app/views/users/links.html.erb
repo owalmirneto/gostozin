@@ -44,7 +44,7 @@
             <% link.tags.each do |tag| %>
               <!-- <span class="label label-info"></span> -->
                 <%#= link_to tag.name,  %>
-              <%= link_to_unless_current tag.name, links_path(:tag => tag.name), :style => "margin:0 3px 3px 0", :class => "btn btn-mini btn-primary" %>
+              <%= link_to_unless_current tag.name, links_path(:tag => tag.name), :style => "margin:0 3px 3px 0", :class => "btn btn-mini btn-warning" %>
             <% end %>
           <% end %>
 
