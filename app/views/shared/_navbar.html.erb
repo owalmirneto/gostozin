@@ -5,7 +5,10 @@
     <div class="navbar-inner">
       <%= image_tag "/images/gostozin-32.png", :style => "margin:6px auto auto 10px;width:28px;float:right;" %>
       <% if user_signed_in? %>
-        <%= image_gravatar(current_user.email, 28, :style => "margin:6px auto auto 10px;width:28px;float:right;") %>
+        <%= image_gravatar(current_user.email, 28, :class => "tooltip-test", 
+          :"data-placement" => "bottom", 
+          :"data-original-title" => "@#{current_user.username}",
+          :style => "margin:6px auto auto 10px;width:28px;float:right;") %>
       <% end %>
       <a class="btn btn-navbar" data-toggle="collapse" data-target=".menu-gostozin" style="margin:6px auto auto 10px;">
         <span class="icon-bar"></span>

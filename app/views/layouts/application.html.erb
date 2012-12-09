@@ -21,6 +21,10 @@
   ================================================== -->
   <%= stylesheet_link_tag "/stylesheets/bootstrap/bootstrap" %>
   <%= stylesheet_link_tag "/stylesheets/bootstrap/bootstrap-responsive" %>
+  <!-- Le font awesome
+  ================================================== -->
+  <%= stylesheet_link_tag "/stylesheets/font-awesome/screen" %>
+  <!--[if IE 7]><%= stylesheet_link_tag "/stylesheets/font-awesome/ie7" %><![endif]-->
   <!-- default of site -->
   <%= stylesheet_link_tag "/stylesheets/screen" %>
   <!-- jcheck -->
@@ -35,12 +39,17 @@
   <!-- scripts default of rails -->
   <%= javascript_include_tag "application" %>
   <!-- bootstrap -->
-  <%= javascript_include_tag "/scripts/bootstrap/prettify" %>
   <%= javascript_include_tag "/scripts/bootstrap/bootstrap" %>
   <%= javascript_include_tag "/scripts/bootstrap/application" %>
   <!-- jcheck -->
   <%= javascript_include_tag "/scripts/jcheck/jcheck-0.7.1.min" %>
   <%= javascript_include_tag "/scripts/jcheck/jcheck.pt-br" %>
+
+  <script type="text/javascript">
+    $(document).ready( function () {
+      $('[rel="tooltip"]').tooltip();
+    });
+  </script>
 
   <!-- Le fav and touch icons
   ================================================== -->
