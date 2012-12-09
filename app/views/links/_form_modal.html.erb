@@ -1,6 +1,6 @@
 <%= javascript_include_tag "/scripts/modules/links" %>
 
-<%= form_for @link_for_form, :html => { :id => "modal_link" } do |f| %>
+<%= form_for @link_for_form, :html => { :id => "modal_link", :style => 'margin:0!important' } do |f| %>
   <div id="modal_new_link" class="modal hide fade" style="display: none;">
     <%= f.hidden_field :user_id, value: current_user.id %>
       

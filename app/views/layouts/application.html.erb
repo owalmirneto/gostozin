@@ -12,13 +12,15 @@
   <!-- Le title
   ================================================== -->
   <title>Gostozinho - Seu báu de links</title>
+  
+  <!-- Le Google Fonts
+  ================================================== -->
+  <link href='http://fonts.googleapis.com/css?family=Rambla:400,700,400italic' rel='stylesheet' type='text/css' />
 
   <!-- Le styles
   ================================================== -->
   <%= stylesheet_link_tag "/stylesheets/bootstrap/bootstrap" %>
   <%= stylesheet_link_tag "/stylesheets/bootstrap/bootstrap-responsive" %>
-  <%= stylesheet_link_tag "/stylesheets/bootstrap/docs" %>
-  <%= stylesheet_link_tag "/stylesheets/bootstrap/prettify" %>
   <!-- default of site -->
   <%= stylesheet_link_tag "/stylesheets/screen" %>
   <!-- jcheck -->
@@ -34,18 +36,7 @@
   <%= javascript_include_tag "application" %>
   <!-- bootstrap -->
   <%= javascript_include_tag "/scripts/bootstrap/prettify" %>
-  <%= javascript_include_tag "/scripts/bootstrap/bootstrap-transition" %>
-  <%= javascript_include_tag "/scripts/bootstrap/bootstrap-alert" %>
-  <%= javascript_include_tag "/scripts/bootstrap/bootstrap-modal" %>
-  <%= javascript_include_tag "/scripts/bootstrap/bootstrap-dropdown" %>
-  <%= javascript_include_tag "/scripts/bootstrap/bootstrap-scrollspy" %>
-  <%= javascript_include_tag "/scripts/bootstrap/bootstrap-tab" %>
-  <%= javascript_include_tag "/scripts/bootstrap/bootstrap-tooltip" %>
-  <%= javascript_include_tag "/scripts/bootstrap/bootstrap-popover" %>
-  <%= javascript_include_tag "/scripts/bootstrap/bootstrap-button" %>
-  <%= javascript_include_tag "/scripts/bootstrap/bootstrap-collapse" %>
-  <%= javascript_include_tag "/scripts/bootstrap/bootstrap-carousel" %>
-  <%= javascript_include_tag "/scripts/bootstrap/bootstrap-typeahead" %>
+  <%= javascript_include_tag "/scripts/bootstrap/bootstrap" %>
   <%= javascript_include_tag "/scripts/bootstrap/application" %>
   <!-- jcheck -->
   <%= javascript_include_tag "/scripts/jcheck/jcheck-0.7.1.min" %>
@@ -61,15 +52,48 @@
 </head>
 
 <body>
-  <%= render "shared/navbar" %>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".menu-apps">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="brand" href="http://wfsneto.com.br">
+          <%= image_tag "/images/wfsneto-logo.png", :style => 'height: 22px' %>
+        </a>
+        <div class="nav-collapse collapse menu-apps">
+          <ul class="nav">
+            <li>
+              <a href="http://blog.wfsneto.com.br">Blog</a>
+            </li>
+            <li class="active">
+              <a href="http://gostoz.in">Gostoz.in</a>
+            </li>
+            <li class="">
+              <a href="http://blog.wfsneto.com.br/contato">Contato</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="line-top"></div>
+  </div>
 
-  <div class="container">
-    <%= render "shared/flash_notice" %>
+  <header class="jumbotron"><div class="container">
+    <%= render "shared/navbar" %> 
+  </div></header>
+  <section id="content">
+    <div class="container random">
+      <%= render "shared/flash_notice" %>
 
-    <%= yield %>
+      <%= yield %>
 
-    <%= render "shared/footer" %>
-  </div><!-- /container -->
+    </div><!-- /container -->
+  </section>
+  
+  <%= render "shared/footer" %>
 
   <% if user_signed_in? %>
     <%= render "links/form_modal" %>
